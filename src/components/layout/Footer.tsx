@@ -20,10 +20,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Strategic Framework</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Implementation Partnership</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Measurement Platform</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Service Packages</Link></li>
+              <li><Link to="/strategic-framework" className="text-gray-300 hover:text-attune-teal transition-colors">Strategic Framework</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Implementation Partnership</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Measurement Platform</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Service Packages</Link></li>
             </ul>
           </div>
 
@@ -31,10 +31,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Blog</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Case Studies</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Research</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Resources</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Blog</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Case Studies</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Research</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Resources</Link></li>
             </ul>
           </div>
 
@@ -42,10 +42,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">About Us</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Our Team</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Careers</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-purple transition-colors">Contact</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-attune-teal transition-colors">About Us</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Our Team</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Careers</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-attune-teal transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
@@ -55,8 +55,8 @@ const Footer = () => {
             &copy; {currentYear} Attune Insights, Inc. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link to="#" className="text-gray-400 hover:text-attune-purple transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-gray-400 hover:text-attune-purple transition-colors">Terms of Service</Link>
+            <Link to="#" className="text-gray-400 hover:text-attune-teal transition-colors">Privacy Policy</Link>
+            <Link to="#" className="text-gray-400 hover:text-attune-teal transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

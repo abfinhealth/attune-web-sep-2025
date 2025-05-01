@@ -24,6 +24,7 @@ import ImpactAnalysis from "./pages/ImpactAnalysis";
 import UserManagement from "./pages/UserManagement";
 import StrategicPlanning from "./pages/StrategicPlanning";
 import ImplementationTracking from "./pages/ImplementationTracking";
+import StrategicFramework from "./pages/StrategicFramework";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/insights" element={<Insights />} />
           <Route path="/credit-unions" element={<ForCreditUnions />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/strategic-framework" element={<StrategicFramework />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/member-assessment" element={<MemberAssessment />} />
           <Route path="/dashboard/marketing" element={<MarketingDashboard />} />
