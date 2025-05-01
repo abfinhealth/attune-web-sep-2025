@@ -14,7 +14,8 @@ import {
   CartesianGrid, 
   Tooltip, 
   ResponsiveContainer,
-  Legend
+  Legend,
+  Cell
 } from 'recharts';
 import {
   Select,
@@ -534,13 +535,16 @@ const SuccessMetrics = () => {
                           dataKey="date"
                           type="category"
                           allowDuplicatedCategory={false}
-                          data={[
+                        >
+                          {[
                             { date: '2025-02' },
                             { date: '2025-03' },
                             { date: '2025-04' },
                             { date: '2025-05' }
-                          ]}
-                        />
+                          ].map((entry) => (
+                            <XAxis.Item key={entry.date} value={entry.date} />
+                          ))}
+                        </XAxis>
                         <YAxis />
                         <Tooltip />
                         <Legend />
@@ -634,16 +638,18 @@ const SuccessMetrics = () => {
                             label={{ value: '% of Target', angle: -90, position: 'insideLeft' }}
                           />
                           <Tooltip 
-                            formatter={(value, name, props) => [
-                              `${value}%`,
-                              `Target Achievement`,
-                              props
-                            ]}
-                            labelFormatter={(label, items) => {
+                            formatter={(value: any, name: any) => {
+                              return [`${value}%`, 'Target Achievement'];
+                            }}
+                            labelFormatter={(label: any, items: any) => {
                               return items[0]?.payload?.fullName || label;
                             }}
                           />
-                          <Bar dataKey="progress" name="Target Achievement" fill="#3b82f6" />
+                          <Bar dataKey="progress" name="Target Achievement" fill="#3b82f6">
+                            {projects.map((project, index) => (
+                              <Cell key={`cell-${index}`} fill="#3b82f6" />
+                            ))}
+                          </Bar>
                           {/* Target line at 100% */}
                           <line x1="0%" y1="100%" x2="100%" y2="100%" stroke="red" strokeDasharray="3 3" />
                         </BarChart>
