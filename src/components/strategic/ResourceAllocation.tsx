@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -47,8 +46,8 @@ import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
-import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
-import { FileChart, Calculator, FileText } from 'lucide-react';
+import { PieChart, Pie, Cell, Legend, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { ChartPie, Calculator, FileText } from 'lucide-react';
 
 // Define resource schema for form validation
 const resourceSchema = z.object({
@@ -428,7 +427,7 @@ const ResourceAllocation = () => {
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
-                      <Tooltip content={<CustomTooltip />} />
+                      <RechartsTooltip content={<CustomTooltip />} />
                       <Legend />
                     </PieChart>
                   </ResponsiveContainer>
@@ -529,10 +528,9 @@ const ResourceAllocation = () => {
                       })}
                     </div>
                   </div>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </TabsContent>
+                </TabsContent>
+              </Tabs>
+            </TabsContent>
           
           {/* Staff Allocation */}
           <TabsContent value="staff" className="mt-4">
@@ -542,11 +540,11 @@ const ResourceAllocation = () => {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis 
                     dataKey="name" 
-                    tick={{ angle: -45, textAnchor: 'end' }} 
+                    tick={{ transform: "rotate(-45)", textAnchor: "end" }} 
                     height={80} 
                   />
                   <YAxis label={{ value: 'Staff Hours', angle: -90, position: 'insideLeft' }} />
-                  <Tooltip />
+                  <RechartsTooltip />
                   <Bar dataKey="hours" name="Staff Hours">
                     {staffHoursData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={getPriorityColor(entry.priority)} />
@@ -637,7 +635,7 @@ const ResourceAllocation = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <FileChart className="h-5 w-5" />
+                  <ChartPie className="h-5 w-5" />
                   Resource Allocation Guidance
                 </CardTitle>
                 <CardDescription>
@@ -862,74 +860,4 @@ const ResourceAllocation = () => {
                   <FormField
                     control={form.control}
                     name="status"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Status</FormLabel>
-                        <FormControl>
-                          <div className="grid grid-cols-2 gap-2">
-                            {['planning', 'active', 'paused', 'completed'].map((status) => (
-                              <div key={status}>
-                                <FormControl>
-                                  <div
-                                    className={`
-                                      flex items-center justify-center p-2 rounded-md cursor-pointer border text-xs
-                                      ${field.value === status ? 
-                                        `bg-${status === 'planning' ? 'blue' : 
-                                           status === 'active' ? 'green' : 
-                                           status === 'paused' ? 'amber' : 'purple'}-100 
-                                         border-${status === 'planning' ? 'blue' : 
-                                                  status === 'active' ? 'green' : 
-                                                  status === 'paused' ? 'amber' : 'purple'}-500` : 
-                                        'bg-gray-100 border-gray-300'}
-                                    `}
-                                    onClick={() => field.onChange(status)}
-                                  >
-                                    <span className="capitalize">{status}</span>
-                                  </div>
-                                </FormControl>
-                              </div>
-                            ))}
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                
-                <FormField
-                  control={form.control}
-                  name="notes"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Notes</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Add any additional resource details" 
-                          {...field} 
-                          rows={3}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <DialogFooter>
-                  <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
-                    Cancel
-                  </Button>
-                  <Button type="submit">
-                    {editingResource ? 'Update' : 'Add'} Resources
-                  </Button>
-                </DialogFooter>
-              </form>
-            </Form>
-          </DialogContent>
-        </Dialog>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default ResourceAllocation;
+                    render
