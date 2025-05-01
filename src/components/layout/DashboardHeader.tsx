@@ -7,20 +7,23 @@ const DashboardHeader = () => {
 
   return (
     <header className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
-      <div className="h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
-        {/* Left side: Logo and menu button */}
-        <div className="flex items-center space-x-3">
+      <div className="h-16 flex items-center px-4 sm:px-6 lg:px-8">
+        {/* Left side: Menu button and title */}
+        <div className="flex items-center gap-2">
           <button 
-            className="lg:hidden flex items-center justify-center rounded-full text-gray-600 hover:text-gray-900 focus:outline-none"
+            className="lg:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
             aria-label="Toggle menu"
           >
-            <Menu className="h-6 w-6" />
+            <Menu size={24} />
           </button>
           <h1 className="text-xl font-semibold text-gray-900">Attune Platform</h1>
         </div>
         
+        {/* Spacer to push right side content */}
+        <div className="flex-grow"></div>
+        
         {/* Right side: Search and icons */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-4">
           {/* Search */}
           <div className="relative max-w-xs">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -36,14 +39,14 @@ const DashboardHeader = () => {
           </div>
           
           {/* Help */}
-          <button className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none">
-            <HelpCircle className="h-5 w-5" />
+          <button className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+            <HelpCircle size={20} />
           </button>
           
           {/* Notifications */}
-          <button className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-attune-orange transform translate-x-1/2 -translate-y-1/2"></span>
+          <button className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none relative">
+            <Bell size={20} />
+            <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-attune-orange"></span>
           </button>
         </div>
       </div>
