@@ -22,9 +22,8 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollAnimation threshold={0.1} className="mb-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display">
-              <span className="text-attune-teal">Mission and Margin:</span>
-              <br className="hidden md:block" />
-              <span className="text-attune-orange">Two Sides of the Same Coin</span>
+              <span className="text-attune-teal">Bring Financial Health to </span>
+              <span className="text-attune-orange">Life</span>
             </h1>
           </ScrollAnimation>
           <ScrollAnimation threshold={0.1} delay={200}>
