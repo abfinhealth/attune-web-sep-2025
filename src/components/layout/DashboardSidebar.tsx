@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -10,7 +11,8 @@ import {
   ChevronDown,
   TrendingUp,
   Store,
-  MapPin
+  MapPin,
+  FileExport
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -110,6 +112,17 @@ const DashboardSidebar = () => {
               >
                 <Users className="h-5 w-5 mr-3" />
                 HR
+              </Link>
+
+              <Link
+                to="/dashboard/custom-reporting"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/custom-reporting') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <FileExport className="h-5 w-5 mr-3" />
+                Custom Reporting
               </Link>
 
               <h3 className="px-3 pt-5 pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
