@@ -12,7 +12,8 @@ import {
   TrendingUp,
   Store,
   MapPin,
-  FileText as CustomReportingIcon
+  FileText as CustomReportingIcon,
+  LineChart
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -112,6 +113,17 @@ const DashboardSidebar = () => {
               >
                 <Users className="h-5 w-5 mr-3" />
                 HR
+              </Link>
+
+              <Link
+                to="/dashboard/analytics"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/analytics') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <LineChart className="h-5 w-5 mr-3" />
+                Analytics & Insights
               </Link>
 
               <Link
