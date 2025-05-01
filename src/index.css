@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,10 +16,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 260 59% 74%;
+    --primary: 180 48% 33%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 240 73% 97%;
+    --secondary: 180 53% 94%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -33,7 +33,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 260 59% 74%;
+    --ring: 180 48% 33%;
 
     --radius: 0.5rem;
 
@@ -57,7 +57,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 260 59% 74%;
+    --primary: 180 48% 33%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -93,11 +93,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans 3', 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
   }
 
   .section-container {
@@ -138,11 +138,15 @@
 
 /* Custom button styles */
 .btn-primary {
-  @apply bg-attune-purple text-white font-medium py-3 px-6 rounded-md transition-all duration-300 hover:bg-attune-purple-dark focus:outline-none focus:ring-2 focus:ring-attune-purple focus:ring-opacity-50 shadow-md hover:shadow-lg;
+  @apply bg-attune-teal text-white font-medium py-3 px-6 rounded-md transition-all duration-300 hover:bg-attune-teal-dark focus:outline-none focus:ring-2 focus:ring-attune-teal focus:ring-opacity-50 shadow-md hover:shadow-lg;
 }
 
 .btn-outline {
-  @apply bg-transparent border-2 border-attune-purple text-attune-purple font-medium py-3 px-6 rounded-md transition-all duration-300 hover:bg-attune-purple hover:text-white focus:outline-none focus:ring-2 focus:ring-attune-purple focus:ring-opacity-50;
+  @apply bg-transparent border-2 border-attune-teal text-attune-teal font-medium py-3 px-6 rounded-md transition-all duration-300 hover:bg-attune-teal hover:text-white focus:outline-none focus:ring-2 focus:ring-attune-teal focus:ring-opacity-50;
+}
+
+.btn-secondary {
+  @apply bg-attune-orange text-white font-medium py-3 px-6 rounded-md transition-all duration-300 hover:bg-attune-orange/90 focus:outline-none focus:ring-2 focus:ring-attune-orange focus:ring-opacity-50 shadow-md hover:shadow-lg;
 }
 
 /* Card hover effect */
@@ -152,4 +156,22 @@
 
 .card-hover:hover {
   @apply shadow-card-hover transform -translate-y-1;
+}
+
+/* Whimsical illustrations */
+.illustration-container {
+  @apply relative inline-block;
+}
+
+.illustration-sparkle {
+  @apply absolute w-6 h-6 text-attune-yellow opacity-70;
+}
+
+/* Gradients */
+.text-gradient-teal {
+  @apply bg-gradient-to-br from-attune-teal via-attune-teal to-attune-teal-light bg-clip-text text-transparent;
+}
+
+.text-gradient-orange {
+  @apply bg-gradient-to-br from-attune-orange via-attune-orange to-attune-yellow bg-clip-text text-transparent;
 }

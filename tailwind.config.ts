@@ -64,12 +64,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				attune: {
-					'purple': '#9b87f5',
-					'purple-dark': '#6E59A5',
-					'purple-light': '#E5DEFF',
-					'blue': '#33C3F0',
-					'blue-light': '#D3E4FD',
-					'gray': '#F1F0FB',
+					'teal': '#2B7C7E',
+					'teal-dark': '#1A5E60',
+					'teal-light': '#E2F5F5',
+					'orange': '#F39C50',
+					'orange-light': '#FEEAD3',
+					'yellow': '#FDC963',
+					'yellow-light': '#FEF2D6',
+					'gray': '#F9F9F9',
 					'gray-dark': '#1A1F2C',
 				},
 			},
@@ -150,6 +152,10 @@ export default {
 			},
 			boxShadow: {
 				'card-hover': '0 10px 30px -5px rgba(0, 0, 0, 0.1)'
+			},
+			fontFamily: {
+				'display': ['Playfair Display', 'serif'],
+				'sans': ['Source Sans 3', 'Inter', 'sans-serif'],
 			}
 		}
 	},

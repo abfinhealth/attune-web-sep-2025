@@ -5,12 +5,14 @@ interface ScrollAnimationProps {
   children: ReactNode;
   threshold?: number;
   className?: string;
+  delay?: number;
 }
 
 const ScrollAnimation = ({ 
   children, 
   threshold = 0.1, 
-  className = '' 
+  className = '',
+  delay = 0
 }: ScrollAnimationProps) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -19,7 +21,9 @@ const ScrollAnimation = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
+            setTimeout(() => {
+              entry.target.classList.add('animated');
+            }, delay);
             observer.unobserve(entry.target);
           }
         });
@@ -37,10 +41,10 @@ const ScrollAnimation = ({
         observer.unobserve(element);
       }
     };
-  }, [threshold]);
+  }, [threshold, delay]);
 
   return (
-    <div ref={elementRef} className={`animate-on-scroll ${className}`}>
+    <div ref={elementRef} className={`animate-on-scroll ${className}`} style={{transitionDelay: `${delay}ms`}}>
       {children}
     </div>
   );
