@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 
 const CaseStudyHighlight = () => {
   const marketingTransformation = [
-    "Developed a distinctive "Financial Progress Partnership" positioning",
+    "Developed a distinctive 'Financial Progress Partnership' positioning",
     "Created integrated campaigns highlighting member outcome improvements",
     "Redesigned the digital and physical acquisition experience",
     "Implemented financial health-focused content strategy"
