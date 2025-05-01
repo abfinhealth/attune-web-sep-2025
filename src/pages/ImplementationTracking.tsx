@@ -6,6 +6,7 @@ import ProjectManagement from '@/components/implementation/ProjectManagement';
 import MilestoneTracking from '@/components/implementation/MilestoneTracking';
 import StatusDashboard from '@/components/implementation/StatusDashboard';
 import SuccessMetrics from '@/components/implementation/SuccessMetrics';
+import KnowledgeResources from '@/components/implementation/KnowledgeResources';
 
 const ImplementationTracking = () => {
   return (
@@ -19,11 +20,12 @@ const ImplementationTracking = () => {
         </div>
         
         <Tabs defaultValue="projects" className="w-full">
-          <TabsList className="grid grid-cols-4 mb-4">
+          <TabsList className="grid grid-cols-5 mb-4">
             <TabsTrigger value="projects">Project Management</TabsTrigger>
             <TabsTrigger value="milestones">Milestone Tracking</TabsTrigger>
             <TabsTrigger value="status">Status Dashboards</TabsTrigger>
             <TabsTrigger value="metrics">Success Metrics</TabsTrigger>
+            <TabsTrigger value="knowledge">Knowledge Resources</TabsTrigger>
           </TabsList>
           
           <TabsContent value="projects" className="space-y-4">
@@ -40,6 +42,10 @@ const ImplementationTracking = () => {
           
           <TabsContent value="metrics" className="space-y-4">
             <SuccessMetrics />
+          </TabsContent>
+          
+          <TabsContent value="knowledge" className="space-y-4">
+            <KnowledgeResources />
           </TabsContent>
         </Tabs>
       </div>
