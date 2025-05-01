@@ -43,8 +43,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-attune-purple-dark">
-                attune<span className="text-attune-purple">insights</span>
+              <span className="text-2xl font-bold text-attune-teal-dark">
+                attune<span className="text-attune-teal">insights</span>
               </span>
             </Link>
           </div>
@@ -57,15 +57,15 @@ const Navbar = () => {
                 to={link.path}
                 className={`font-medium transition-colors duration-200 link-underline ${
                   location.pathname === link.path 
-                    ? 'text-attune-purple' 
-                    : 'text-gray-600 hover:text-attune-purple'
+                    ? 'text-attune-teal' 
+                    : 'text-gray-600 hover:text-attune-teal'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
             <Link to="/contact">
-              <Button className="bg-attune-purple hover:bg-attune-purple-dark text-white">
+              <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white">
                 Contact
               </Button>
             </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-attune-purple focus:outline-none"
+              className="text-gray-700 hover:text-attune-teal focus:outline-none"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -93,8 +93,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`font-medium py-2 transition-colors duration-200 ${
                     location.pathname === link.path 
-                      ? 'text-attune-purple' 
-                      : 'text-gray-600 hover:text-attune-purple'
+                      ? 'text-attune-teal' 
+                      : 'text-gray-600 hover:text-attune-teal'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -102,7 +102,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link to="/contact" onClick={() => setIsOpen(false)}>
-                <Button className="bg-attune-purple hover:bg-attune-purple-dark text-white w-full mt-2">
+                <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white w-full mt-2">
                   Contact
                 </Button>
               </Link>

@@ -19,10 +19,10 @@ const ForCreditUnions = () => {
       
       <main className="flex-grow pt-24 md:pt-28">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-white to-purple-50 py-16 px-4">
+        <section className="bg-gradient-to-b from-white to-attune-teal-light py-16 px-4">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-attune-purple-dark mb-6">For Credit Unions</h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-attune-purple-dark mb-6">Financial Health: Your Competitive Advantage</h2>
+            <h1 className="text-4xl md:text-5xl font-bold text-attune-teal-dark mb-6">For Credit Unions</h1>
+            <h2 className="text-2xl md:text-3xl font-semibold text-attune-teal-dark mb-6">Financial Health: Your Competitive Advantage</h2>
             <p className="text-xl text-gray-700 mb-8">How leading credit unions are transforming their business through financial health</p>
             <div className="max-w-3xl mx-auto">
               <p className="text-gray-700 mb-6">
@@ -38,13 +38,13 @@ const ForCreditUnions = () => {
         {/* Challenges Section */}
         <section className="py-16 px-4 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-purple-dark mb-10 text-center">Meeting Today's Credit Union Challenges</h2>
+            <h2 className="text-3xl font-bold text-attune-teal-dark mb-10 text-center">Meeting Today's Credit Union Challenges</h2>
             
             <div className="space-y-12">
               {/* Challenge 1 */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-attune-purple mb-3">Demonstrating Value Beyond Rates</h3>
+                <div className="bg-attune-teal-light p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-attune-teal mb-3">Demonstrating Value Beyond Rates</h3>
                   <div className="mb-4">
                     <strong className="block text-gray-700 mb-2">The Challenge:</strong>
                     <p className="text-gray-700">
@@ -59,16 +59,16 @@ const ForCreditUnions = () => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <div className="w-24 h-24 bg-attune-purple/10 rounded-full flex items-center justify-center">
-                    <TrendingUp className="w-12 h-12 text-attune-purple" />
+                  <div className="w-24 h-24 bg-attune-teal/10 rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-12 h-12 text-attune-teal" />
                   </div>
                 </div>
               </div>
 
               {/* Challenge 2 */}
               <div className="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
-                <div className="bg-purple-50 p-6 rounded-lg md:order-2">
-                  <h3 className="text-xl font-bold text-attune-purple mb-3">Measuring Mission Impact</h3>
+                <div className="bg-attune-teal-light p-6 rounded-lg md:order-2">
+                  <h3 className="text-xl font-bold text-attune-teal mb-3">Measuring Mission Impact</h3>
                   <div className="mb-4">
                     <strong className="block text-gray-700 mb-2">The Challenge:</strong>
                     <p className="text-gray-700">
@@ -83,16 +83,16 @@ const ForCreditUnions = () => {
                   </div>
                 </div>
                 <div className="flex justify-center md:order-1">
-                  <div className="w-24 h-24 bg-attune-purple/10 rounded-full flex items-center justify-center">
-                    <LineChart className="w-12 h-12 text-attune-purple" />
+                  <div className="w-24 h-24 bg-attune-teal/10 rounded-full flex items-center justify-center">
+                    <LineChart className="w-12 h-12 text-attune-teal" />
                   </div>
                 </div>
               </div>
 
               {/* Challenge 3 */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-attune-purple mb-3">Competing with Banks and Fintechs</h3>
+                <div className="bg-attune-teal-light p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-attune-teal mb-3">Competing with Banks and Fintechs</h3>
                   <div className="mb-4">
                     <strong className="block text-gray-700 mb-2">The Challenge:</strong>
                     <p className="text-gray-700">
@@ -107,16 +107,16 @@ const ForCreditUnions = () => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <div className="w-24 h-24 bg-attune-purple/10 rounded-full flex items-center justify-center">
-                    <Building2 className="w-12 h-12 text-attune-purple" />
+                  <div className="w-24 h-24 bg-attune-teal/10 rounded-full flex items-center justify-center">
+                    <Building2 className="w-12 h-12 text-attune-teal" />
                   </div>
                 </div>
               </div>
 
               {/* Challenge 4 */}
               <div className="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
-                <div className="bg-purple-50 p-6 rounded-lg md:order-2">
-                  <h3 className="text-xl font-bold text-attune-purple mb-3">Aligning Around Purpose</h3>
+                <div className="bg-attune-teal-light p-6 rounded-lg md:order-2">
+                  <h3 className="text-xl font-bold text-attune-teal mb-3">Aligning Around Purpose</h3>
                   <div className="mb-4">
                     <strong className="block text-gray-700 mb-2">The Challenge:</strong>
                     <p className="text-gray-700">
@@ -131,16 +131,16 @@ const ForCreditUnions = () => {
                   </div>
                 </div>
                 <div className="flex justify-center md:order-1">
-                  <div className="w-24 h-24 bg-attune-purple/10 rounded-full flex items-center justify-center">
-                    <Handshake className="w-12 h-12 text-attune-purple" />
+                  <div className="w-24 h-24 bg-attune-teal/10 rounded-full flex items-center justify-center">
+                    <Handshake className="w-12 h-12 text-attune-teal" />
                   </div>
                 </div>
               </div>
 
               {/* Challenge 5 */}
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-attune-purple mb-3">Moving Beyond Fragmented Initiatives</h3>
+                <div className="bg-attune-teal-light p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-attune-teal mb-3">Moving Beyond Fragmented Initiatives</h3>
                   <div className="mb-4">
                     <strong className="block text-gray-700 mb-2">The Challenge:</strong>
                     <p className="text-gray-700">
@@ -155,8 +155,8 @@ const ForCreditUnions = () => {
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <div className="w-24 h-24 bg-attune-purple/10 rounded-full flex items-center justify-center">
-                    <LineChart className="w-12 h-12 text-attune-purple" />
+                  <div className="w-24 h-24 bg-attune-teal/10 rounded-full flex items-center justify-center">
+                    <LineChart className="w-12 h-12 text-attune-teal" />
                   </div>
                 </div>
               </div>
@@ -165,15 +165,15 @@ const ForCreditUnions = () => {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 px-4 bg-purple-50">
+        <section className="py-16 px-4 bg-attune-teal-light">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-purple-dark mb-10 text-center">Credit Unions Bringing Financial Health to Life</h2>
+            <h2 className="text-3xl font-bold text-attune-teal-dark mb-10 text-center">Credit Unions Bringing Financial Health to Life</h2>
             
             <div className="space-y-10">
               {/* Case Study 1 */}
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-attune-purple-dark mb-2">Community First Credit Union</h3>
+                  <h3 className="text-2xl font-bold text-attune-teal-dark mb-2">Community First Credit Union</h3>
                   <div className="flex flex-wrap gap-6 mb-4 text-sm">
                     <p><strong>Asset Size:</strong> $1.8 billion</p>
                     <p><strong>Members:</strong> 140,000</p>
@@ -197,12 +197,12 @@ const ForCreditUnions = () => {
                     </ul>
                   </div>
                   
-                  <blockquote className="italic text-gray-700 border-l-4 border-attune-purple pl-4 py-2 mb-4">
+                  <blockquote className="italic text-gray-700 border-l-4 border-attune-teal pl-4 py-2 mb-4">
                     "Attune has transformed how we think about our mission. Financial health isn't just something we talk about anymore—it's how we operate, differentiate, and grow. Our board, leadership team, and employees are all aligned around a shared vision that drives both purpose and performance."
                     <footer className="mt-2 font-medium">— Sarah Johnson, CEO, Community First Credit Union</footer>
                   </blockquote>
                   
-                  <Button variant="outline" className="flex items-center gap-2 text-attune-purple border-attune-purple hover:bg-attune-purple hover:text-white">
+                  <Button variant="outline" className="flex items-center gap-2 text-attune-teal border-attune-teal hover:bg-attune-teal hover:text-white">
                     Read the Full Case Study <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
@@ -211,7 +211,7 @@ const ForCreditUnions = () => {
               {/* Case Study 2 */}
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-attune-purple-dark mb-2">Horizon Credit Union</h3>
+                  <h3 className="text-2xl font-bold text-attune-teal-dark mb-2">Horizon Credit Union</h3>
                   <div className="flex flex-wrap gap-6 mb-4 text-sm">
                     <p><strong>Asset Size:</strong> $850 million</p>
                     <p><strong>Members:</strong> 72,000</p>
@@ -235,12 +235,12 @@ const ForCreditUnions = () => {
                     </ul>
                   </div>
                   
-                  <blockquote className="italic text-gray-700 border-l-4 border-attune-purple pl-4 py-2 mb-4">
+                  <blockquote className="italic text-gray-700 border-l-4 border-attune-teal pl-4 py-2 mb-4">
                     "Working with Attune allowed us to move beyond fragmented initiatives to a cohesive strategy that touches every part of our organization. Their measurement platform has given us unprecedented visibility into both our mission impact and business outcomes, proving that financial health truly drives our success."
                     <footer className="mt-2 font-medium">— Michael Rivera, COO, Horizon Credit Union</footer>
                   </blockquote>
                   
-                  <Button variant="outline" className="flex items-center gap-2 text-attune-purple border-attune-purple hover:bg-attune-purple hover:text-white">
+                  <Button variant="outline" className="flex items-center gap-2 text-attune-teal border-attune-teal hover:bg-attune-teal hover:text-white">
                     Read the Full Case Study <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
@@ -249,7 +249,7 @@ const ForCreditUnions = () => {
               {/* Case Study 3 */}
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-attune-purple-dark mb-2">Evergreen Financial Cooperative</h3>
+                  <h3 className="text-2xl font-bold text-attune-teal-dark mb-2">Evergreen Financial Cooperative</h3>
                   <div className="flex flex-wrap gap-6 mb-4 text-sm">
                     <p><strong>Asset Size:</strong> $1.2 billion</p>
                     <p><strong>Members:</strong> 95,000</p>
@@ -273,19 +273,19 @@ const ForCreditUnions = () => {
                     </ul>
                   </div>
                   
-                  <blockquote className="italic text-gray-700 border-l-4 border-attune-purple pl-4 py-2 mb-4">
+                  <blockquote className="italic text-gray-700 border-l-4 border-attune-teal pl-4 py-2 mb-4">
                     "Starting with our employees' financial health created a powerful foundation for our broader transformation. Our team members became authentic advocates for financial health because they experienced the impact firsthand. This approach has created a genuine cultural shift that our members can feel in every interaction."
                     <footer className="mt-2 font-medium">— Elena Rodriguez, CEO, Evergreen Financial Cooperative</footer>
                   </blockquote>
                   
-                  <Button variant="outline" className="flex items-center gap-2 text-attune-purple border-attune-purple hover:bg-attune-purple hover:text-white">
+                  <Button variant="outline" className="flex items-center gap-2 text-attune-teal border-attune-teal hover:bg-attune-teal hover:text-white">
                     Read the Full Case Study <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
               
               <div className="text-center">
-                <Button variant="outline" className="flex items-center gap-2 mx-auto text-attune-purple border-attune-purple hover:bg-attune-purple hover:text-white">
+                <Button variant="outline" className="flex items-center gap-2 mx-auto text-attune-teal border-attune-teal hover:bg-attune-teal hover:text-white">
                   View All Success Stories <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -296,12 +296,12 @@ const ForCreditUnions = () => {
         {/* Financial Health in Action Section */}
         <section className="py-16 px-4 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-purple-dark mb-4 text-center">Financial Health in Action</h2>
+            <h2 className="text-3xl font-bold text-attune-teal-dark mb-4 text-center">Financial Health in Action</h2>
             <p className="text-gray-700 text-center mb-10">Financial health transformation touches every part of your credit union. Here's how it comes to life across key departments:</p>
             
             <div className="space-y-8">
-              <div className="bg-purple-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-attune-purple-dark mb-4">Marketing & Member Experience</h3>
+              <div className="bg-attune-teal-light rounded-lg p-6">
+                <h3 className="text-xl font-bold text-attune-teal-dark mb-4">Marketing & Member Experience</h3>
                 
                 <div className="mb-4">
                   <h4 className="font-bold text-gray-800 mb-2">The Financial Health Approach:</h4>
@@ -322,8 +322,8 @@ const ForCreditUnions = () => {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-attune-purple-dark mb-4">Product Development</h3>
+              <div className="bg-attune-teal-light rounded-lg p-6">
+                <h3 className="text-xl font-bold text-attune-teal-dark mb-4">Product Development</h3>
                 
                 <div className="mb-4">
                   <h4 className="font-bold text-gray-800 mb-2">The Financial Health Approach:</h4>
@@ -344,8 +344,8 @@ const ForCreditUnions = () => {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-attune-purple-dark mb-4">Retail/Branch Operations</h3>
+              <div className="bg-attune-teal-light rounded-lg p-6">
+                <h3 className="text-xl font-bold text-attune-teal-dark mb-4">Retail/Branch Operations</h3>
                 
                 <div className="mb-4">
                   <h4 className="font-bold text-gray-800 mb-2">The Financial Health Approach:</h4>
@@ -366,8 +366,8 @@ const ForCreditUnions = () => {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-attune-purple-dark mb-4">HR & Employee Wellness</h3>
+              <div className="bg-attune-teal-light rounded-lg p-6">
+                <h3 className="text-xl font-bold text-attune-teal-dark mb-4">HR & Employee Wellness</h3>
                 
                 <div className="mb-4">
                   <h4 className="font-bold text-gray-800 mb-2">The Financial Health Approach:</h4>
@@ -388,8 +388,8 @@ const ForCreditUnions = () => {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-attune-purple-dark mb-4">Executive & Board Engagement</h3>
+              <div className="bg-attune-teal-light rounded-lg p-6">
+                <h3 className="text-xl font-bold text-attune-teal-dark mb-4">Executive & Board Engagement</h3>
                 
                 <div className="mb-4">
                   <h4 className="font-bold text-gray-800 mb-2">The Financial Health Approach:</h4>
@@ -414,9 +414,9 @@ const ForCreditUnions = () => {
         </section>
         
         {/* FAQ Section */}
-        <section className="py-16 px-4 bg-purple-50">
+        <section className="py-16 px-4 bg-attune-teal-light">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-purple-dark mb-10 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-attune-teal-dark mb-10 text-center">Frequently Asked Questions</h2>
             
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="item-1" className="bg-white rounded-lg shadow-sm border-none">
@@ -475,7 +475,7 @@ const ForCreditUnions = () => {
             </Accordion>
             
             <div className="text-center mt-8">
-              <Button variant="outline" className="flex items-center gap-2 mx-auto text-attune-purple border-attune-purple hover:bg-attune-purple hover:text-white">
+              <Button variant="outline" className="flex items-center gap-2 mx-auto text-attune-teal border-attune-teal hover:bg-attune-teal hover:text-white">
                 View All FAQs <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
@@ -483,13 +483,13 @@ const ForCreditUnions = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 px-4 bg-attune-purple text-white">
+        <section className="py-16 px-4 bg-attune-teal text-white">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Bring Financial Health to Life?</h2>
             <p className="text-lg mb-8">
               Join leading credit unions transforming their business through financial health. Schedule a consultation to discuss your unique situation and explore how Attune can help you make financial health your competitive advantage.
             </p>
-            <Button className="bg-white text-attune-purple hover:bg-gray-100 hover:text-attune-purple-dark">
+            <Button className="bg-white text-attune-teal hover:bg-gray-100 hover:text-attune-teal-dark">
               Schedule a Consultation
             </Button>
           </div>
