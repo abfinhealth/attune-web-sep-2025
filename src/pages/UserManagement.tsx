@@ -33,8 +33,17 @@ const UserRoles = {
   ANALYST: "analyst"
 } as const;
 
+// Define User interface to ensure type safety
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: typeof UserRoles[keyof typeof UserRoles];
+  department: string;
+}
+
 // Sample mock data for users
-const mockUsers = [
+const mockUsers: User[] = [
   { id: 1, name: 'John Smith', email: 'john@example.com', role: UserRoles.ADMIN, department: 'Technology' },
   { id: 2, name: 'Jane Doe', email: 'jane@example.com', role: UserRoles.EXECUTIVE, department: 'Executive' },
   { id: 3, name: 'Mike Johnson', email: 'mike@example.com', role: UserRoles.DEPARTMENT, department: 'Marketing' },
@@ -82,7 +91,7 @@ const userFormSchema = z.object({
 type UserFormValues = z.infer<typeof userFormSchema>;
 
 const UserManagement = () => {
-  const [users, setUsers] = useState(mockUsers);
+  const [users, setUsers] = useState<User[]>(mockUsers);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingUserId, setEditingUserId] = useState<number | null>(null);
   
@@ -100,15 +109,24 @@ const UserManagement = () => {
   // Handle adding new user
   const onSubmit = (values: UserFormValues) => {
     if (editingUserId) {
-      // Update existing user
+      // Update existing user - ensure all properties are present
       setUsers(users.map(user => 
-        user.id === editingUserId ? { ...user, ...values } : user
+        user.id === editingUserId ? { 
+          ...user, 
+          name: values.name,
+          email: values.email,
+          role: values.role,
+          department: values.department 
+        } : user
       ));
     } else {
-      // Add new user
-      const newUser = {
-        id: Math.max(...users.map(u => u.id)) + 1,
-        ...values
+      // Add new user - create a complete User object
+      const newUser: User = {
+        id: Math.max(0, ...users.map(u => u.id)) + 1,
+        name: values.name,
+        email: values.email,
+        role: values.role,
+        department: values.department
       };
       setUsers([...users, newUser]);
     }
@@ -118,7 +136,7 @@ const UserManagement = () => {
   };
 
   // Handle edit user button click
-  const handleEditUser = (user: typeof users[0]) => {
+  const handleEditUser = (user: User) => {
     form.reset({
       name: user.name,
       email: user.email,
