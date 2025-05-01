@@ -27,6 +27,7 @@ import ImplementationTracking from "./pages/ImplementationTracking";
 import StrategicFramework from "./pages/StrategicFramework";
 import ImplementationPartnership from "./pages/ImplementationPartnership";
 import MeasurementPlatform from "./pages/MeasurementPlatform";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/dashboard/user-management" element={<UserManagement />} />
           <Route path="/dashboard/strategic-planning" element={<StrategicPlanning />} />
           <Route path="/dashboard/implementation-tracking" element={<ImplementationTracking />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
