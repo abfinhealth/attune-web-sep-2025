@@ -28,7 +28,7 @@ const MeasurementPlatform = () => {
     "Interactive Dashboards: Visualize financial health metrics through customizable dashboards tailored to different user needs and perspectives.",
     "Custom Report Generation: Create compelling reports for various stakeholders, from board presentations to department-specific analyses.",
     "Drill-Down Capabilities: Explore data at multiple levels of granularity, from enterprise-wide trends to specific member segments.",
-    "Narrative Generation: Automatically translate data into meaningful narratives that explain the "so what" behind the numbers.",
+    'Narrative Generation: Automatically translate data into meaningful narratives that explain the "so what" behind the numbers.',
     "Export and Sharing: Easily share insights through multiple formats, including PDF reports, PowerPoint presentations, and interactive dashboards."
   ];
 
