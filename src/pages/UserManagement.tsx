@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
@@ -819,4 +820,99 @@ const UserManagement = () => {
         
         {/* Audit Logs Tab */}
         <TabsContent value="audit">
-          <Card
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <ActivityIcon className="mr-2 h-5 w-5" />
+                Audit Logs
+              </CardTitle>
+              <CardDescription>Track all user and system activities for security monitoring</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="bg-white rounded-lg border shadow-sm">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Timestamp</TableHead>
+                      <TableHead>User</TableHead>
+                      <TableHead>Action</TableHead>
+                      <TableHead>Details</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {auditLogs.map((log) => (
+                      <TableRow key={log.id}>
+                        <TableCell className="font-mono text-xs">{log.timestamp}</TableCell>
+                        <TableCell>{log.userName}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                            {log.action}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-sm text-gray-600">{log.details}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+      
+      {/* MFA Setup Dialog */}
+      <Dialog open={mfaSetupDialogOpen} onOpenChange={setMfaSetupDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Set up Multi-Factor Authentication</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-6">
+            <div className="flex flex-col items-center space-y-4">
+              <div className="bg-gray-100 p-4 rounded-lg">
+                {/* This would be a QR code in a real app */}
+                <div className="w-48 h-48 border-2 border-dashed border-gray-400 flex items-center justify-center">
+                  <span className="text-gray-500 text-xs text-center px-4">
+                    QR Code for authenticator app<br />(This is a placeholder)
+                  </span>
+                </div>
+              </div>
+              <p className="text-sm text-center text-gray-600">
+                Scan this QR code with your authenticator app<br />
+                or enter the code manually: <span className="font-mono">ABCD EFGH IJKL</span>
+              </p>
+            </div>
+            
+            <div className="space-y-2">
+              <p className="text-sm font-medium">Enter the 6-digit code from your authenticator app:</p>
+              <div className="flex justify-center">
+                <InputOTP maxLength={6} className="gap-2">
+                  <InputOTPGroup>
+                    <InputOTPSlot index={0} />
+                    <InputOTPSlot index={1} />
+                    <InputOTPSlot index={2} />
+                  </InputOTPGroup>
+                  <InputOTPGroup>
+                    <InputOTPSlot index={3} />
+                    <InputOTPSlot index={4} />
+                    <InputOTPSlot index={5} />
+                  </InputOTPGroup>
+                </InputOTP>
+              </div>
+            </div>
+            
+            <div className="flex justify-end space-x-2">
+              <Button variant="outline" onClick={() => setMfaSetupDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button onClick={completeMfaSetup}>
+                Verify and Enable MFA
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </DashboardLayout>
+  );
+};
+
+export default UserManagement;
