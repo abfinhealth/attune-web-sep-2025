@@ -251,19 +251,19 @@ const Dashboard = () => {
             <p className="text-sm text-gray-500">Progress towards 2025 Financial Health Objectives</p>
           </CardHeader>
           <CardContent>
-            <div className="h-96">
+            <div className="h-[32rem]">
               <ChartContainer config={chartConfig}>
                 <BarChart
                   layout="vertical"
                   data={strategicGoalsData}
-                  margin={{ top: 20, right: 30, left: 120, bottom: 20 }}
+                  margin={{ top: 20, right: 30, left: 140, bottom: 40 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
                   <XAxis type="number" domain={[0, 100]} />
                   <YAxis 
                     type="category" 
                     dataKey="name" 
-                    width={120} 
+                    width={140} 
                     tick={{ fontSize: 12 }} 
                   />
                   <ChartTooltip content={<ChartTooltipContent />} />
@@ -280,7 +280,7 @@ const Dashboard = () => {
                 </BarChart>
               </ChartContainer>
             </div>
-            <div className="flex items-center justify-center mt-4 gap-6">
+            <div className="flex items-center justify-center mt-8 gap-6">
               <div className="flex items-center">
                 <div className="h-3 w-3 rounded-sm bg-attune-teal mr-2"></div>
                 <span className="text-sm font-medium">Mission Metrics</span>
@@ -343,14 +343,14 @@ const Dashboard = () => {
       <Card className="p-6 mb-8">
         {/* Product adoption by segment */}
         <h3 className="text-lg font-medium mb-4">Product Adoption by Segment (%)</h3>
-        <div className="h-96">
+        <div className="h-[32rem]">
           <ChartContainer config={chartConfig}>
             <BarChart
               data={productAdoptionData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+              margin={{ top: 20, right: 30, left: 20, bottom: 40 }}
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="name" />
+              <XAxis dataKey="name" tick={{ fontSize: 12 }} />
               <YAxis domain={[0, 100]} />
               <ChartTooltip content={<ChartTooltipContent />} />
               <Bar dataKey="healthy" stackId="a" fill="#2B7C7E" />
