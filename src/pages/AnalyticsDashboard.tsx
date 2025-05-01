@@ -11,6 +11,7 @@ import TimeSeriesChart from '@/components/analytics/TimeSeriesChart';
 import YearOverYearComparison from '@/components/analytics/YearOverYearComparison';
 import SeasonalPatterns from '@/components/analytics/SeasonalPatterns';
 import ForecastChart from '@/components/analytics/ForecastChart';
+import SegmentationAnalysis from '@/components/analytics/SegmentationAnalysis';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -230,11 +231,12 @@ const AnalyticsDashboard = () => {
         </div>
         
         <Tabs defaultValue="time-series">
-          <TabsList className="grid grid-cols-4 mb-4">
+          <TabsList className="grid grid-cols-5 mb-4">
             <TabsTrigger value="time-series">Time Series</TabsTrigger>
             <TabsTrigger value="year-over-year">Year over Year</TabsTrigger>
             <TabsTrigger value="seasonal">Seasonal Patterns</TabsTrigger>
             <TabsTrigger value="forecast">Forecasting</TabsTrigger>
+            <TabsTrigger value="segmentation">Segmentation</TabsTrigger>
           </TabsList>
           
           <TabsContent value="time-series" className="space-y-4">
@@ -376,6 +378,10 @@ const AnalyticsDashboard = () => {
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
+
+          <TabsContent value="segmentation" className="space-y-4">
+            <SegmentationAnalysis />
           </TabsContent>
         </Tabs>
       </div>
