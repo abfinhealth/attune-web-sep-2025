@@ -8,15 +8,15 @@ const DashboardHeader = () => {
   return (
     <header className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
       <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:px-8">
-        {/* Add menu button on all screen sizes and ensure spacing */}
+        {/* Menu button and title with proper vertical alignment */}
         <div className="flex items-center">
           <button 
-            className="lg:hidden mr-3 p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none" 
+            className="lg:hidden flex items-center justify-center p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none" 
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
           </button>
-          <h1 className="text-xl font-semibold text-gray-900">Attune Platform</h1>
+          <h1 className="text-xl font-semibold text-gray-900 ml-3">Attune Platform</h1>
         </div>
         
         <div className="flex items-center space-x-4">
@@ -34,13 +34,13 @@ const DashboardHeader = () => {
             />
           </div>
           
-          {/* Help */}
-          <button className="p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none">
+          {/* Help - with flexbox alignment */}
+          <button className="flex items-center justify-center p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none">
             <HelpCircle className="h-6 w-6" />
           </button>
           
-          {/* Notifications */}
-          <button className="p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none relative">
+          {/* Notifications - with flexbox alignment */}
+          <button className="flex items-center justify-center p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none relative">
             <Bell className="h-6 w-6" />
             <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-attune-orange transform translate-x-1/2 -translate-y-1/2"></span>
           </button>
