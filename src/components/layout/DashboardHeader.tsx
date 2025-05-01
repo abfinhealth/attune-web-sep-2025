@@ -6,7 +6,7 @@ const DashboardHeader = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
+    <header className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
       <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:px-8">
         <h1 className="text-xl font-semibold text-gray-900">Attune Platform</h1>
         

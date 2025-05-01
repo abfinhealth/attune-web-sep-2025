@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import DashboardLayout from '@/components/layout/DashboardLayout';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import {
   ChartContainer,
   ChartTooltip,
@@ -10,7 +9,9 @@ import {
   ChartLegendContent
 } from '@/components/ui/chart';
 import { AreaChart, Area, LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { ArrowUpRight, ArrowDownRight, TrendingUp, User, Users } from 'lucide-react';
+import { ArrowUpRight, ArrowDownRight, TrendingUp, User, Users, FileText, Download, Target } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/use-toast';
 
 const financialHealthData = [
   { month: 'Jan', score: 65, benchmark: 62 },
@@ -42,6 +43,16 @@ const productAdoptionData = [
   { name: 'Investment', healthy: 42, coping: 18, vulnerable: 5 },
 ];
 
+// New data for goal tracking
+const strategicGoalsData = [
+  { name: 'Member Financial Health Score', current: 87, target: 90, category: 'Mission' },
+  { name: 'Product Adoption Rate', current: 68, target: 75, category: 'Margin' },
+  { name: 'Member Retention', current: 94, target: 96, category: 'Margin' },
+  { name: 'Financial Education', current: 62, target: 80, category: 'Mission' },
+  { name: 'Emergency Savings Rate', current: 56, target: 70, category: 'Mission' },
+  { name: 'Cross-Sell Ratio', current: 2.8, target: 3.5, category: 'Margin' },
+];
+
 const chartConfig = {
   score: {
     label: 'Financial Health Score',
@@ -63,21 +74,60 @@ const chartConfig = {
     label: 'Financially Vulnerable',
     color: '#F39C50', // attune-orange
   },
+  target: {
+    label: 'Target',
+    color: '#9b87f5', // attune-purple
+  },
+  current: {
+    label: 'Current',
+    color: '#2B7C7E', // attune-teal
+  },
 };
 
 const Dashboard = () => {
   const [period, setPeriod] = useState('annual');
+  const [reportType, setReportType] = useState('executive');
+  const [showGoals, setShowGoals] = useState(true);
 
   const totalMembers = 24875;
   const completedAssessments = 18632;
   const averageScore = financialHealthData[financialHealthData.length - 1].score;
   const scoreTrend = averageScore - financialHealthData[0].score;
+
+  const generateReport = (type: string) => {
+    // In a real implementation, this would generate and download a report
+    toast({
+      title: "Report Generated",
+      description: `Your ${type} report is ready for download.`,
+      duration: 3000,
+    });
+  };
   
   return (
     <DashboardLayout>
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Executive Dashboard</h1>
-        <p className="text-gray-600 mt-1">Overview of your credit union's financial health metrics</p>
+      <div className="mb-6 flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Executive Dashboard</h1>
+          <p className="text-gray-600 mt-1">Overview of your credit union's financial health metrics</p>
+        </div>
+        <div className="flex items-center space-x-3">
+          <Button 
+            variant="outline" 
+            className="flex items-center gap-2"
+            onClick={() => generateReport(reportType)}
+          >
+            <FileText size={16} />
+            <span className="hidden sm:inline">Generate Report</span>
+          </Button>
+          <Button 
+            variant="default" 
+            className="flex items-center gap-2 bg-attune-teal hover:bg-attune-teal/90"
+            onClick={() => generateReport(reportType)}
+          >
+            <Download size={16} />
+            <span className="hidden sm:inline">Export Board Deck</span>
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -147,7 +197,27 @@ const Dashboard = () => {
       </div>
 
       {/* Time period selector */}
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center">
+          <Button 
+            variant={showGoals ? "default" : "outline"}
+            size="sm"
+            className={showGoals ? "bg-attune-teal text-white" : ""}
+            onClick={() => setShowGoals(true)}
+          >
+            <Target size={16} className="mr-2" />
+            Strategic Goals
+          </Button>
+          <Button 
+            variant={!showGoals ? "default" : "outline"}
+            size="sm"
+            className={!showGoals ? "bg-attune-teal text-white" : "ml-2"}
+            onClick={() => setShowGoals(false)}
+          >
+            <TrendingUp size={16} className="mr-2" />
+            Trend Analysis
+          </Button>
+        </div>
         <div className="inline-flex rounded-md shadow-sm">
           <button
             onClick={() => setPeriod('quarterly')}
@@ -172,49 +242,105 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Financial Health Trend */}
-        <Card className="p-6">
-          <h3 className="text-lg font-medium mb-4">Financial Health Trend</h3>
-          <div className="h-80">
-            <ChartContainer config={chartConfig}>
-              <AreaChart data={financialHealthData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="month" />
-                <YAxis domain={[50, 100]} />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Area type="monotone" dataKey="score" stackId="1" stroke="#2B7C7E" fill="#E2F5F5" />
-                <Area type="monotone" dataKey="benchmark" stackId="2" stroke="#8E9196" fill="#F9F9F9" strokeDasharray="3 3" />
-                <ChartLegend content={<ChartLegendContent />} />
-              </AreaChart>
-            </ChartContainer>
-          </div>
+      {/* Strategic Goal Tracking */}
+      {showGoals ? (
+        <Card className="mb-8">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg font-medium">Strategic Goal Tracking</CardTitle>
+            <p className="text-sm text-gray-500">Progress towards 2025 Financial Health Objectives</p>
+          </CardHeader>
+          <CardContent>
+            <div className="h-80">
+              <ChartContainer config={chartConfig}>
+                <BarChart
+                  layout="vertical"
+                  data={strategicGoalsData}
+                  margin={{ top: 20, right: 30, left: 100, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
+                  <XAxis type="number" domain={[0, 100]} />
+                  <YAxis 
+                    type="category" 
+                    dataKey="name" 
+                    width={100} 
+                    tick={{ fontSize: 12 }} 
+                  />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Bar dataKey="current" name="Current" barSize={20} fill="#2B7C7E">
+                    {strategicGoalsData.map((entry, index) => (
+                      <Cell 
+                        key={`cell-${index}`} 
+                        fill={entry.category === 'Mission' ? '#2B7C7E' : '#9b87f5'} 
+                      />
+                    ))}
+                  </Bar>
+                  <Bar dataKey="target" name="Target" barSize={20} fill="#8E9196" strokeDasharray="3 3" stroke="#8E9196" fillOpacity={0.2} />
+                  <ChartLegend content={<ChartLegendContent />} />
+                </BarChart>
+              </ChartContainer>
+            </div>
+            <div className="flex items-center justify-center mt-4 gap-6">
+              <div className="flex items-center">
+                <div className="h-3 w-3 rounded-sm bg-attune-teal mr-2"></div>
+                <span className="text-sm font-medium">Mission Metrics</span>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 rounded-sm bg-[#9b87f5] mr-2"></div>
+                <span className="text-sm font-medium">Margin Metrics</span>
+              </div>
+              <div className="flex items-center">
+                <div className="h-3 w-3 border-2 border-dashed border-gray-400 rounded-sm bg-transparent mr-2"></div>
+                <span className="text-sm font-medium">Target</span>
+              </div>
+            </div>
+          </CardContent>
         </Card>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Financial Health Trend */}
+          <Card className="p-6">
+            <h3 className="text-lg font-medium mb-4">Financial Health Trend</h3>
+            <div className="h-80">
+              <ChartContainer config={chartConfig}>
+                <AreaChart data={financialHealthData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis domain={[50, 100]} />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Area type="monotone" dataKey="score" stackId="1" stroke="#2B7C7E" fill="#E2F5F5" />
+                  <Area type="monotone" dataKey="benchmark" stackId="2" stroke="#8E9196" fill="#F9F9F9" strokeDasharray="3 3" />
+                  <ChartLegend content={<ChartLegendContent />} />
+                </AreaChart>
+              </ChartContainer>
+            </div>
+          </Card>
 
-        {/* Segment Breakdown */}
-        <Card className="p-6">
-          <h3 className="text-lg font-medium mb-4">Financial Health Segments</h3>
-          <div className="h-80">
-            <ChartContainer config={chartConfig}>
-              <BarChart data={segmentData} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
-                <XAxis type="number" domain={[0, 100]} />
-                <YAxis type="category" dataKey="name" width={150} />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                <Bar dataKey="value" barSize={30}>
-                  {segmentData.map((entry, index) => {
-                    const colors = ['#2B7C7E', '#FDC963', '#F39C50'];
-                    return <Cell key={`cell-${index}`} fill={colors[index]} />;
-                  })}
-                </Bar>
-              </BarChart>
-            </ChartContainer>
-          </div>
-        </Card>
-      </div>
+          {/* Segment Breakdown */}
+          <Card className="p-6">
+            <h3 className="text-lg font-medium mb-4">Financial Health Segments</h3>
+            <div className="h-80">
+              <ChartContainer config={chartConfig}>
+                <BarChart data={segmentData} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
+                  <XAxis type="number" domain={[0, 100]} />
+                  <YAxis type="category" dataKey="name" width={150} />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Bar dataKey="value" barSize={30}>
+                    {segmentData.map((entry, index) => {
+                      const colors = ['#2B7C7E', '#FDC963', '#F39C50'];
+                      return <Cell key={`cell-${index}`} fill={colors[index]} />;
+                    })}
+                  </Bar>
+                </BarChart>
+              </ChartContainer>
+            </div>
+          </Card>
+        </div>
+      )}
 
       {/* Product adoption by segment */}
       <Card className="p-6 mb-8">
+        {/* Product adoption by segment */}
         <h3 className="text-lg font-medium mb-4">Product Adoption by Segment (%)</h3>
         <div className="h-80">
           <ChartContainer config={chartConfig}>
@@ -232,6 +358,45 @@ const Dashboard = () => {
               <ChartLegend content={<ChartLegendContent />} />
             </BarChart>
           </ChartContainer>
+        </div>
+      </Card>
+
+      {/* Board Report Templates */}
+      <Card className="p-6 mb-8">
+        <h3 className="text-lg font-medium mb-4">Board-Ready Reports</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer" onClick={() => generateReport('executive')}>
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-medium">Executive Summary</h4>
+              <FileText size={20} className="text-attune-teal" />
+            </div>
+            <p className="text-sm text-gray-600 mb-6">High-level overview of key performance metrics and financial health trends.</p>
+            <Button variant="outline" size="sm" className="w-full" onClick={() => generateReport('executive')}>
+              Generate Report
+            </Button>
+          </div>
+          
+          <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer" onClick={() => generateReport('strategic')}>
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-medium">Strategic Goals</h4>
+              <Target size={20} className="text-attune-purple" />
+            </div>
+            <p className="text-sm text-gray-600 mb-6">Detailed progress against strategic financial health objectives and targets.</p>
+            <Button variant="outline" size="sm" className="w-full" onClick={() => generateReport('strategic')}>
+              Generate Report
+            </Button>
+          </div>
+          
+          <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer" onClick={() => generateReport('segment')}>
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-medium">Segment Analysis</h4>
+              <Users size={20} className="text-attune-orange" />
+            </div>
+            <p className="text-sm text-gray-600 mb-6">Detailed breakdown of member segments and their financial health patterns.</p>
+            <Button variant="outline" size="sm" className="w-full" onClick={() => generateReport('segment')}>
+              Generate Report
+            </Button>
+          </div>
         </div>
       </Card>
 
