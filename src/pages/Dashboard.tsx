@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Cell } from 'recharts';
 import DashboardLayout from '@/components/layout/DashboardLayout';
@@ -251,19 +252,19 @@ const Dashboard = () => {
             <p className="text-sm text-gray-500">Progress towards 2025 Financial Health Objectives</p>
           </CardHeader>
           <CardContent>
-            <div className="h-[32rem]">
+            <div className="h-[36rem] max-h-[800px]">
               <ChartContainer config={chartConfig}>
                 <BarChart
                   layout="vertical"
                   data={strategicGoalsData}
-                  margin={{ top: 20, right: 30, left: 140, bottom: 40 }}
+                  margin={{ top: 20, right: 30, left: 160, bottom: 40 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
                   <XAxis type="number" domain={[0, 100]} />
                   <YAxis 
                     type="category" 
                     dataKey="name" 
-                    width={140} 
+                    width={160} 
                     tick={{ fontSize: 12 }} 
                   />
                   <ChartTooltip content={<ChartTooltipContent />} />
@@ -301,9 +302,9 @@ const Dashboard = () => {
           {/* Financial Health Trend */}
           <Card className="p-6">
             <h3 className="text-lg font-medium mb-4">Financial Health Trend</h3>
-            <div className="h-80">
+            <div className="h-[28rem]">
               <ChartContainer config={chartConfig}>
-                <AreaChart data={financialHealthData} margin={{ top: 10, right: 30, left: 0, bottom: 20 }}>
+                <AreaChart data={financialHealthData} margin={{ top: 20, right: 30, left: 0, bottom: 30 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="month" />
                   <YAxis domain={[50, 100]} />
@@ -319,12 +320,12 @@ const Dashboard = () => {
           {/* Segment Breakdown */}
           <Card className="p-6">
             <h3 className="text-lg font-medium mb-4">Financial Health Segments</h3>
-            <div className="h-80">
+            <div className="h-[28rem]">
               <ChartContainer config={chartConfig}>
-                <BarChart data={segmentData} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+                <BarChart data={segmentData} layout="vertical" margin={{ top: 20, right: 30, left: 180, bottom: 30 }}>
                   <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
                   <XAxis type="number" domain={[0, 100]} />
-                  <YAxis type="category" dataKey="name" width={150} />
+                  <YAxis type="category" dataKey="name" width={180} />
                   <ChartTooltip content={<ChartTooltipContent />} />
                   <Bar dataKey="value" barSize={30}>
                     {segmentData.map((entry, index) => {
@@ -341,16 +342,15 @@ const Dashboard = () => {
 
       {/* Product adoption by segment */}
       <Card className="p-6 mb-8">
-        {/* Product adoption by segment */}
         <h3 className="text-lg font-medium mb-4">Product Adoption by Segment (%)</h3>
-        <div className="h-[32rem]">
+        <div className="h-[36rem] max-h-[800px]">
           <ChartContainer config={chartConfig}>
             <BarChart
               data={productAdoptionData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 40 }}
+              margin={{ top: 20, right: 30, left: 20, bottom: 50 }}
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+              <XAxis dataKey="name" tick={{ fontSize: 12 }} angle={0} textAnchor="middle" height={60} />
               <YAxis domain={[0, 100]} />
               <ChartTooltip content={<ChartTooltipContent />} />
               <Bar dataKey="healthy" stackId="a" fill="#2B7C7E" />

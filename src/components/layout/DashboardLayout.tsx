@@ -14,7 +14,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       <div className="lg:pl-64 flex flex-col flex-1 h-screen overflow-hidden">
         <DashboardHeader />
         <main className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto pb-8">
             {children}
           </div>
         </main>
