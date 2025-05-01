@@ -22,14 +22,13 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollAnimation threshold={0.1} className="mb-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display">
-              <span className="text-attune-teal">Build Tomorrow's Financial</span><br/>
-              <span className="text-attune-teal">Health Ecosystem, </span>
-              <span className="text-attune-orange">Today</span>
+              <span className="text-attune-teal">Bring Financial Health to </span>
+              <span className="text-attune-orange">Life</span>
             </h1>
           </ScrollAnimation>
           <ScrollAnimation threshold={0.1} delay={200}>
             <p className="text-xl md:text-2xl mb-10 text-gray-700 font-light">
-              Transform your credit union by making financial health your competitive advantage
+              Make financial health your competitive advantage
             </p>
           </ScrollAnimation>
           <ScrollAnimation threshold={0.1} delay={400}>
