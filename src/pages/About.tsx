@@ -33,6 +33,11 @@ const About = () => {
 
   const boardMembers = [
     {
+      name: 'Andy Bandyopadhyay, PhD, CUDE',
+      title: 'Founder & CEO, Board Member',
+      bio: 'Andy founded Attune with the vision of transforming how credit unions approach their mission. With a PhD from Georgia Tech and extensive experience in financial health measurement and strategy, Andy leads our mission to bring financial health to life.'
+    },
+    {
       name: 'Niko Canner',
       title: 'Board Chair',
       bio: 'Niko brings extensive experience in strategy, organizational transformation, and mission-driven business models. As our Board Chair, he provides invaluable guidance on our growth strategy and market approach.'
