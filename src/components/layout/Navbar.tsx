@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', path: '/about' },
-    { name: 'Solutions', path: '#' },
+    { name: 'Solutions', path: '/solutions' },
     { name: 'Approach', path: '#' },
     { name: 'Insights', path: '#' },
     { name: 'For Credit Unions', path: '#' },
