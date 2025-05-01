@@ -15,7 +15,8 @@ import {
   FileText as CustomReportingIcon,
   LineChart,
   BarChart, // Added for Impact Analysis
-  Shield // Added for User Management
+  Shield, // Added for User Management
+  Target // Added for Strategic Planning
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -137,6 +138,17 @@ const DashboardSidebar = () => {
               >
                 <BarChart className="h-5 w-5 mr-3" />
                 Impact Analysis
+              </Link>
+              
+              <Link
+                to="/dashboard/strategic-planning"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/strategic-planning') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <Target className="h-5 w-5 mr-3" />
+                Strategic Planning
               </Link>
 
               <Link
