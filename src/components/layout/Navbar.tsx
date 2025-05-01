@@ -30,7 +30,7 @@ const Navbar = () => {
     { name: 'Solutions', path: '/solutions' },
     { name: 'Approach', path: '/approach' },
     { name: 'Insights', path: '/insights' },
-    { name: 'For Credit Unions', path: '#' },
+    { name: 'For Credit Unions', path: '/credit-unions' },
   ];
 
   return (
