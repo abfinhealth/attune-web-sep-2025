@@ -13,7 +13,8 @@ import {
   Store,
   MapPin,
   FileText as CustomReportingIcon,
-  LineChart
+  LineChart,
+  BarChart // Added for Impact Analysis
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -124,6 +125,17 @@ const DashboardSidebar = () => {
               >
                 <LineChart className="h-5 w-5 mr-3" />
                 Analytics & Insights
+              </Link>
+
+              <Link
+                to="/dashboard/impact-analysis"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/impact-analysis') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <BarChart className="h-5 w-5 mr-3" />
+                Impact Analysis
               </Link>
 
               <Link
