@@ -1,6 +1,12 @@
-
 import { useState } from 'react';
 import DashboardLayout from '../components/layout/DashboardLayout';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
+import { ShieldCheckIcon, ActivityIcon, FileDigitIcon, ClockIcon } from 'lucide-react';
+import UserProvisioning from '../components/user/UserProvisioning';
+import PasswordAndSessionPolicy from '../components/user/PasswordAndSessionPolicy';
+import AccessRequestWorkflow from '../components/user/AccessRequestWorkflow';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '../components/ui/table';
 import { 
   Form, 
@@ -18,20 +24,17 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '../components/ui/select';
-import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
 import { Input } from '../components/ui/input';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Switch } from '../components/ui/switch';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '../components/ui/input-otp';
 import { toast } from '@/hooks/use-toast';
 import { Separator } from '../components/ui/separator';
-import { LockKeyholeIcon, ShieldCheckIcon, ActivityIcon, KeyIcon, AlertOctagonIcon, FileDigitIcon, ClockIcon } from 'lucide-react';
+import { LockKeyholeIcon, KeyIcon, AlertOctagonIcon } from 'lucide-react';
 
 // Define user roles
 const UserRoles = {
@@ -325,11 +328,14 @@ const UserManagement = () => {
       <Tabs defaultValue="users" className="w-full">
         <TabsList className="mb-4">
           <TabsTrigger value="users">User Management</TabsTrigger>
+          <TabsTrigger value="provisioning">User Provisioning</TabsTrigger>
+          <TabsTrigger value="password">Password & Session</TabsTrigger>
+          <TabsTrigger value="access">Access Requests</TabsTrigger>
           <TabsTrigger value="security">Security Settings</TabsTrigger>
           <TabsTrigger value="audit">Audit Logs</TabsTrigger>
         </TabsList>
         
-        {/* User Management Tab */}
+        {/* Role overview section - Appears at top of User Management tab */}
         <TabsContent value="users">
           {/* Role overview section */}
           <div className="mb-8">
@@ -359,7 +365,7 @@ const UserManagement = () => {
             </div>
           </div>
           
-          {/* User list section */}
+          {/* User list would go here */}
           <div>
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">User Management</h2>
@@ -539,6 +545,21 @@ const UserManagement = () => {
               </Table>
             </div>
           </div>
+        </TabsContent>
+        
+        {/* User Provisioning Tab */}
+        <TabsContent value="provisioning">
+          <UserProvisioning />
+        </TabsContent>
+        
+        {/* Password Policy & Session Management Tab */}
+        <TabsContent value="password">
+          <PasswordAndSessionPolicy />
+        </TabsContent>
+        
+        {/* Access Request Workflow Tab */}
+        <TabsContent value="access">
+          <AccessRequestWorkflow />
         </TabsContent>
         
         {/* Security Settings Tab */}
@@ -798,95 +819,4 @@ const UserManagement = () => {
         
         {/* Audit Logs Tab */}
         <TabsContent value="audit">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <ActivityIcon className="mr-2 h-5 w-5" />
-                Audit Logs
-              </CardTitle>
-              <CardDescription>Comprehensive tracking of user activities and system events</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="bg-white rounded-lg border shadow-sm">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Timestamp</TableHead>
-                      <TableHead>User</TableHead>
-                      <TableHead>Action</TableHead>
-                      <TableHead>Details</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {auditLogs.map((log) => (
-                      <TableRow key={log.id}>
-                        <TableCell className="font-mono text-xs">{log.timestamp}</TableCell>
-                        <TableCell>{log.userName}</TableCell>
-                        <TableCell>
-                          <Badge variant="outline" className="bg-gray-50">
-                            {log.action}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="max-w-md truncate">{log.details}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
-      
-      {/* MFA Setup Dialog */}
-      <Dialog open={mfaSetupDialogOpen} onOpenChange={setMfaSetupDialogOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Set Up Multi-Factor Authentication</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 py-4">
-            <div className="flex justify-center mb-4">
-              <div className="bg-gray-100 p-4 rounded-lg">
-                {/* Placeholder for QR code - in a real app, this would be dynamic */}
-                <div className="w-48 h-48 bg-gray-300 flex items-center justify-center text-gray-500">
-                  QR Code Placeholder
-                </div>
-              </div>
-            </div>
-            
-            <div className="text-center mb-6">
-              <p className="text-sm text-gray-500">
-                Scan this QR code with your authenticator app, then enter the verification code below.
-              </p>
-            </div>
-            
-            <div className="flex justify-center">
-              <InputOTP maxLength={6} className="gap-2">
-                <InputOTPGroup>
-                  <InputOTPSlot index={0} />
-                  <InputOTPSlot index={1} />
-                  <InputOTPSlot index={2} />
-                </InputOTPGroup>
-                <InputOTPGroup>
-                  <InputOTPSlot index={3} />
-                  <InputOTPSlot index={4} />
-                  <InputOTPSlot index={5} />
-                </InputOTPGroup>
-              </InputOTP>
-            </div>
-          </div>
-          <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={() => setMfaSetupDialogOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={completeMfaSetup}>
-              Verify and Enable
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
-    </DashboardLayout>
-  );
-};
-
-export default UserManagement;
+          <Card
