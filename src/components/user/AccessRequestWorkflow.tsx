@@ -26,7 +26,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { toast } from '@/hooks/use-toast';
-import { AccessRequestIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from 'lucide-react';
+import { ClipboardList, CheckCircle, XCircle, Clock } from 'lucide-react';
 
 // Define access request status
 type RequestStatus = 'pending' | 'approved' | 'rejected';
@@ -223,7 +223,7 @@ const AccessRequestWorkflow = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold flex items-center">
-          <AccessRequestIcon className="mr-2 h-5 w-5" />
+          <ClipboardList className="mr-2 h-5 w-5" />
           Access Request Workflow
         </h2>
         <Dialog open={newRequestDialogOpen} onOpenChange={setNewRequestDialogOpen}>
@@ -392,14 +392,14 @@ const AccessRequestWorkflow = () => {
                         className={`flex flex-col items-center p-3 rounded-lg border-2 cursor-pointer ${field.value === 'approved' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`}
                         onClick={() => field.onChange('approved')}
                       >
-                        <CheckCircleIcon className="h-6 w-6 text-green-500 mb-1" />
+                        <CheckCircle className="h-6 w-6 text-green-500 mb-1" />
                         <span>Approve</span>
                       </div>
                       <div 
                         className={`flex flex-col items-center p-3 rounded-lg border-2 cursor-pointer ${field.value === 'rejected' ? 'border-red-500 bg-red-50' : 'border-gray-200'}`}
                         onClick={() => field.onChange('rejected')}
                       >
-                        <XCircleIcon className="h-6 w-6 text-red-500 mb-1" />
+                        <XCircle className="h-6 w-6 text-red-500 mb-1" />
                         <span>Reject</span>
                       </div>
                     </div>
@@ -433,7 +433,7 @@ const AccessRequestWorkflow = () => {
                     <FormItem>
                       <FormLabel>Set Expiration Date</FormLabel>
                       <div className="flex items-center gap-2">
-                        <ClockIcon className="h-4 w-4 text-gray-500" />
+                        <Clock className="h-4 w-4 text-gray-500" />
                         <FormControl>
                           <Input type="datetime-local" {...field} />
                         </FormControl>
