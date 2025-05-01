@@ -8,7 +8,8 @@ const DashboardHeader = () => {
   return (
     <header className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
       <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:px-8">
-        <h1 className="text-xl font-semibold text-gray-900">Attune Platform</h1>
+        {/* Added ml-12 for small screens to prevent overlap with the menu button */}
+        <h1 className="text-xl font-semibold text-gray-900 ml-10 sm:ml-0">Attune Platform</h1>
         
         <div className="flex items-center space-x-4">
           {/* Search */}
