@@ -1,12 +1,13 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'About', path: '/about' },
     { name: 'Solutions', path: '/solutions' },
-    { name: 'Approach', path: '#' },
+    { name: 'Approach', path: '/approach' },
     { name: 'Insights', path: '#' },
     { name: 'For Credit Unions', path: '#' },
   ];
@@ -54,7 +55,11 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="font-medium text-gray-600 hover:text-attune-purple transition-colors duration-200 link-underline"
+                className={`font-medium transition-colors duration-200 link-underline ${
+                  location.pathname === link.path 
+                    ? 'text-attune-purple' 
+                    : 'text-gray-600 hover:text-attune-purple'
+                }`}
               >
                 {link.name}
               </Link>
@@ -86,7 +91,11 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="font-medium text-gray-600 hover:text-attune-purple py-2 transition-colors duration-200"
+                  className={`font-medium py-2 transition-colors duration-200 ${
+                    location.pathname === link.path 
+                      ? 'text-attune-purple' 
+                      : 'text-gray-600 hover:text-attune-purple'
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
