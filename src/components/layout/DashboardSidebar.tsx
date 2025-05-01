@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -50,12 +49,14 @@ const DashboardSidebar = () => {
         <div className="h-full flex flex-col">
           <div className="px-6 pt-8 pb-6 border-b">
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-bold text-attune-teal">Attune Platform</span>
+              <span className="text-xl font-bold text-attune-teal ml-8">Attune Platform</span>
             </Link>
           </div>
           
+          {/* Rest of the sidebar content remains the same */}
           <div className="flex-1 px-4 py-6 overflow-y-auto">
             <nav className="space-y-1">
+              
               <Link
                 to="/dashboard"
                 className={`flex items-center px-2 py-3 rounded-md ${
