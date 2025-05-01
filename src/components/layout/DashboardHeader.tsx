@@ -7,11 +7,11 @@ const DashboardHeader = () => {
 
   return (
     <header className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
-      <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:px-8">
-        {/* Menu button and title with proper vertical alignment */}
+      <div className="h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
+        {/* Left side: Logo and menu button */}
         <div className="flex items-center space-x-3">
           <button 
-            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none" 
+            className="lg:hidden flex items-center justify-center rounded-full text-gray-600 hover:text-gray-900 focus:outline-none"
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
@@ -19,6 +19,7 @@ const DashboardHeader = () => {
           <h1 className="text-xl font-semibold text-gray-900">Attune Platform</h1>
         </div>
         
+        {/* Right side: Search and icons */}
         <div className="flex items-center space-x-4">
           {/* Search */}
           <div className="relative max-w-xs">
@@ -34,14 +35,14 @@ const DashboardHeader = () => {
             />
           </div>
           
-          {/* Help - with fixed sizing for consistent alignment */}
-          <button className="inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none">
-            <HelpCircle className="h-6 w-6" />
+          {/* Help */}
+          <button className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none">
+            <HelpCircle className="h-5 w-5" />
           </button>
           
-          {/* Notifications - with fixed sizing for consistent alignment */}
-          <button className="inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none relative">
-            <Bell className="h-6 w-6" />
+          {/* Notifications */}
+          <button className="flex items-center justify-center w-8 h-8 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none relative">
+            <Bell className="h-5 w-5" />
             <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-attune-orange transform translate-x-1/2 -translate-y-1/2"></span>
           </button>
         </div>
