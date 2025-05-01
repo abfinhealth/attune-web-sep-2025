@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -16,7 +15,8 @@ import {
   LineChart,
   BarChart, // Added for Impact Analysis
   Shield, // Added for User Management
-  Target // Added for Strategic Planning
+  Target, // Added for Strategic Planning
+  Milestone // Added for Implementation Tracking
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -149,6 +149,17 @@ const DashboardSidebar = () => {
               >
                 <Target className="h-5 w-5 mr-3" />
                 Strategic Planning
+              </Link>
+              
+              <Link
+                to="/dashboard/implementation-tracking"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/implementation-tracking') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <Milestone className="h-5 w-5 mr-3" />
+                Implementation Tracking
               </Link>
 
               <Link

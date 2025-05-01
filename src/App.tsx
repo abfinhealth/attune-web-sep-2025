@@ -17,6 +17,7 @@ import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import ImpactAnalysis from "./pages/ImpactAnalysis";
 import UserManagement from "./pages/UserManagement";
 import StrategicPlanning from "./pages/StrategicPlanning";
+import ImplementationTracking from "./pages/ImplementationTracking";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/dashboard/impact-analysis" element={<ImpactAnalysis />} />
           <Route path="/dashboard/user-management" element={<UserManagement />} />
           <Route path="/dashboard/strategic-planning" element={<StrategicPlanning />} />
+          <Route path="/dashboard/implementation-tracking" element={<ImplementationTracking />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
