@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -197,6 +196,9 @@ const SuccessMetrics = () => {
       duration: 3000
     });
   };
+  
+  // Create months array for the X-axis
+  const months = ['2025-02', '2025-03', '2025-04', '2025-05'];
   
   return (
     <div className="space-y-6">
@@ -535,15 +537,9 @@ const SuccessMetrics = () => {
                           dataKey="date"
                           type="category"
                           allowDuplicatedCategory={false}
+                          tickFormatter={(tick) => tick}
                         >
-                          {[
-                            { date: '2025-02' },
-                            { date: '2025-03' },
-                            { date: '2025-04' },
-                            { date: '2025-05' }
-                          ].map((entry) => (
-                            <XAxis.Item key={entry.date} value={entry.date} />
-                          ))}
+                          {/* Fix: Remove the XAxis.Item usage and let XAxis handle the data */}
                         </XAxis>
                         <YAxis />
                         <Tooltip />
@@ -554,12 +550,10 @@ const SuccessMetrics = () => {
                           if (metricsInCategory.length === 0) return null;
                           
                           // Get aggregated data for each month
-                          const data = [
-                            { date: '2025-02', value: 0 },
-                            { date: '2025-03', value: 0 },
-                            { date: '2025-04', value: 0 },
-                            { date: '2025-05', value: 0 }
-                          ];
+                          const data = months.map(month => ({
+                            date: month,
+                            value: 0
+                          }));
                           
                           // Calculate average progress percentage for each month
                           data.forEach((month, i) => {
@@ -638,7 +632,7 @@ const SuccessMetrics = () => {
                             label={{ value: '% of Target', angle: -90, position: 'insideLeft' }}
                           />
                           <Tooltip 
-                            formatter={(value: any, name: any) => {
+                            formatter={(value: any) => {
                               return [`${value}%`, 'Target Achievement'];
                             }}
                             labelFormatter={(label: any, items: any) => {
