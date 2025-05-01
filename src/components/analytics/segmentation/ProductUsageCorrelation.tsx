@@ -208,7 +208,7 @@ const ProductUsageCorrelation = ({ segmentId }: ProductUsageCorrelationProps) =>
                 <YAxis type="category" dataKey="product" width={100} />
                 <Tooltip 
                   formatter={(value) => [
-                    `${value > 0 ? '+' : ''}${Number(value).toFixed(2)}`, 
+                    `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(2)}`, 
                     'Correlation with Financial Score'
                   ]} 
                 />
