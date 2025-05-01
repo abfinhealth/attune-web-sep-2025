@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Bell, Search, HelpCircle } from 'lucide-react';
+import { Bell, Search, HelpCircle, Menu } from 'lucide-react';
 
 const DashboardHeader = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -8,8 +8,16 @@ const DashboardHeader = () => {
   return (
     <header className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
       <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:px-8">
-        {/* Added ml-12 for small screens to prevent overlap with the menu button */}
-        <h1 className="text-xl font-semibold text-gray-900 ml-10 sm:ml-0">Attune Platform</h1>
+        {/* Add menu button on all screen sizes and ensure spacing */}
+        <div className="flex items-center">
+          <button 
+            className="lg:hidden mr-3 p-1 rounded-full text-gray-600 hover:text-gray-900 focus:outline-none" 
+            aria-label="Toggle menu"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+          <h1 className="text-xl font-semibold text-gray-900">Attune Platform</h1>
+        </div>
         
         <div className="flex items-center space-x-4">
           {/* Search */}
