@@ -1,199 +1,152 @@
 
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, 
-  BarChart, 
   Users, 
   FileText, 
   Settings, 
+  LogOut, 
+  ChevronRight, 
   ChevronDown,
-  ChevronUp,
-  HelpCircle,
-  X,
-  Menu
+  TrendingUp,
+  Store,
+  MapPin
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>({
-    'financial-health': false,
-    'analytics': false,
-  });
 
-  const toggleMenu = (menu: string) => {
-    setExpandedMenus(prev => ({
-      ...prev,
-      [menu]: !prev[menu]
-    }));
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
-
-  const mainNavItems = [
-    {
-      name: 'Dashboard',
-      href: '/dashboard',
-      icon: LayoutDashboard
-    }
-  ];
-
-  const secondaryNavItems = [
-    {
-      name: 'Financial Health',
-      key: 'financial-health',
-      icon: Users,
-      children: [
-        { name: 'Member Assessment', href: '/dashboard/member-assessment' },
-        { name: 'Employee Assessment', href: '/dashboard/employee-assessment' },
-        { name: 'Benchmarks', href: '/dashboard/benchmarks' },
-      ]
-    },
-    {
-      name: 'Analytics & Insights',
-      key: 'analytics',
-      icon: BarChart,
-      children: [
-        { name: 'Trend Analysis', href: '/dashboard/trend-analysis' },
-        { name: 'Segmentation', href: '/dashboard/segmentation' },
-        { name: 'Impact Analysis', href: '/dashboard/impact-analysis' },
-      ]
-    },
-    {
-      name: 'Reports',
-      href: '/dashboard/reports',
-      icon: FileText,
-    },
-    {
-      name: 'Settings',
-      href: '/dashboard/settings',
-      icon: Settings,
-    },
-    {
-      name: 'Help & Resources',
-      href: '/dashboard/help',
-      icon: HelpCircle,
-    }
-  ];
-
+  
   return (
     <>
-      {/* Mobile sidebar toggle */}
-      <div className="fixed inset-0 bg-gray-900/80 lg:hidden z-40" 
-           style={{ display: isOpen ? 'block' : 'none' }} 
-           onClick={() => setIsOpen(false)} />
-           
-      <div className="lg:hidden fixed top-0 left-0 z-40 flex items-center p-4">
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-gray-700 focus:outline-none">
-          <Menu size={24} />
-        </button>
-      </div>
+      {/* Mobile overlay */}
+      <div 
+        className={`fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden ${isOpen ? 'block' : 'hidden'}`}
+        onClick={() => setIsOpen(false)}
+      />
+      
+      {/* Mobile toggle */}
+      <button 
+        className="fixed top-4 left-4 bg-white p-2 rounded-md shadow-md z-30 lg:hidden"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="sr-only">Open sidebar</span>
+        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      
+      {/* Sidebar */}
+      <aside 
+        className={`fixed inset-y-0 left-0 w-64 bg-white shadow-md z-30 transition-transform transform lg:translate-x-0 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="h-full flex flex-col">
+          <div className="px-6 pt-8 pb-6 border-b">
+            <Link to="/" className="flex items-center">
+              <span className="text-xl font-bold text-attune-teal">Attune Platform</span>
+            </Link>
+          </div>
+          
+          <div className="flex-1 px-4 py-6 overflow-y-auto">
+            <nav className="space-y-1">
+              <Link
+                to="/dashboard"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <LayoutDashboard className="h-5 w-5 mr-3" />
+                Executive Dashboard
+              </Link>
+              
+              <Link
+                to="/dashboard/marketing"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/marketing') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <TrendingUp className="h-5 w-5 mr-3" />
+                Marketing
+              </Link>
+              
+              <Link
+                to="/dashboard/product"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/product') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <Store className="h-5 w-5 mr-3" />
+                Product
+              </Link>
+              
+              <Link
+                to="/dashboard/branch"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/branch') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <MapPin className="h-5 w-5 mr-3" />
+                Branch/Retail
+              </Link>
+              
+              <Link
+                to="/dashboard/hr"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/hr') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <Users className="h-5 w-5 mr-3" />
+                HR
+              </Link>
 
-      {/* Sidebar for mobile */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-sidebar transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="h-full flex flex-col overflow-y-auto bg-white border-r border-gray-200">
-          <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
-            <div className="flex items-center">
-              <img 
-                src="/placeholder.svg"
-                alt="Attune Logo"
-                className="h-8 w-auto"
-              />
-              <span className="ml-2 text-xl font-semibold text-attune-teal">Attune</span>
-            </div>
-            <button 
-              className="lg:hidden text-gray-600 hover:text-gray-900"
-              onClick={() => setIsOpen(false)}>
-              <X size={20} />
-            </button>
-          </div>
-          
-          <div className="flex flex-col flex-grow p-4 space-y-4">
-            <div className="space-y-1">
-              {mainNavItems.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.href}
-                  className={({ isActive }) => `
-                    flex items-center px-2 py-2 text-sm font-medium rounded-md
-                    ${isActive ? 'bg-attune-teal-light text-attune-teal' : 'text-gray-700 hover:bg-gray-100'}
-                  `}
+              <h3 className="px-3 pt-5 pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Member Tools
+              </h3>
+              
+              <Link
+                to="/dashboard/member-assessment"
+                className={`flex items-center px-2 py-3 rounded-md ${
+                  isActive('/dashboard/member-assessment') ? 'bg-attune-teal-light text-attune-teal font-medium' : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <FileText className="h-5 w-5 mr-3" />
+                Assessment Tool
+              </Link>
+              
+              <div className="mt-auto pt-4">
+                <Link
+                  to="/settings"
+                  className="flex items-center px-2 py-3 text-gray-600 hover:bg-gray-100 rounded-md"
+                  onClick={() => setIsOpen(false)}
                 >
-                  <item.icon className="mr-3 h-5 w-5" />
-                  {item.name}
-                </NavLink>
-              ))}
-            </div>
-            
-            <div className="border-t border-gray-200 pt-4">
-              <div className="px-2 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                Analytics
+                  <Settings className="h-5 w-5 mr-3" />
+                  Settings
+                </Link>
+                
+                <button
+                  className="flex items-center px-2 py-3 w-full text-left text-gray-600 hover:bg-gray-100 rounded-md"
+                >
+                  <LogOut className="h-5 w-5 mr-3" />
+                  Logout
+                </button>
               </div>
-              <nav className="space-y-1">
-                {secondaryNavItems.map((item) => (
-                  item.children ? (
-                    <div key={item.name} className="space-y-1">
-                      <button
-                        onClick={() => toggleMenu(item.key)}
-                        className={`w-full flex items-center justify-between px-2 py-2 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-100`}
-                      >
-                        <div className="flex items-center">
-                          <item.icon className="mr-3 h-5 w-5" />
-                          {item.name}
-                        </div>
-                        {expandedMenus[item.key] ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                      </button>
-                      
-                      {expandedMenus[item.key] && (
-                        <div className="ml-8 space-y-1">
-                          {item.children.map((child) => (
-                            <NavLink
-                              key={child.name}
-                              to={child.href}
-                              className={({ isActive }) => `
-                                block px-2 py-2 text-sm font-medium rounded-md
-                                ${isActive ? 'text-attune-teal' : 'text-gray-600 hover:text-gray-900'}
-                              `}
-                            >
-                              {child.name}
-                            </NavLink>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <NavLink
-                      key={item.name}
-                      to={item.href}
-                      className={({ isActive }) => `
-                        flex items-center px-2 py-2 text-sm font-medium rounded-md
-                        ${isActive ? 'bg-attune-teal-light text-attune-teal' : 'text-gray-700 hover:bg-gray-100'}
-                      `}
-                    >
-                      <item.icon className="mr-3 h-5 w-5" />
-                      {item.name}
-                    </NavLink>
-                  )
-                ))}
-              </nav>
-            </div>
-          </div>
-          
-          <div className="p-4 border-t border-gray-200">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="h-8 w-8 rounded-full bg-attune-teal-light flex items-center justify-center text-attune-teal font-medium">
-                  CU
-                </div>
-              </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-gray-700">Community First CU</p>
-                <p className="text-xs text-gray-500">Admin User</p>
-              </div>
-            </div>
+            </nav>
           </div>
         </div>
-      </div>
+      </aside>
     </>
   );
 };
