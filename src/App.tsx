@@ -10,6 +10,7 @@ import Solutions from "./pages/Solutions";
 import Approach from "./pages/Approach";
 import Insights from "./pages/Insights";
 import ForCreditUnions from "./pages/ForCreditUnions";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import MemberAssessment from "./pages/MemberAssessment";
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/approach" element={<Approach />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/credit-unions" element={<ForCreditUnions />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/member-assessment" element={<MemberAssessment />} />
           <Route path="/dashboard/marketing" element={<MarketingDashboard />} />
