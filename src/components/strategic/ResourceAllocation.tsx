@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -528,9 +529,10 @@ const ResourceAllocation = () => {
                       })}
                     </div>
                   </div>
-                </TabsContent>
-              </Tabs>
-            </TabsContent>
+                </div>
+              </TabsContent>
+            </Tabs>
+          </TabsContent>
           
           {/* Staff Allocation */}
           <TabsContent value="staff" className="mt-4">
@@ -860,4 +862,65 @@ const ResourceAllocation = () => {
                   <FormField
                     control={form.control}
                     name="status"
-                    render
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Status</FormLabel>
+                        <div className="grid grid-cols-2 gap-2">
+                          {['planning', 'active', 'paused', 'completed'].map((status) => (
+                            <div key={status}>
+                              <FormControl>
+                                <div
+                                  className={`
+                                    flex items-center justify-center p-2 rounded-md cursor-pointer border text-xs
+                                    ${field.value === status ? 
+                                      `bg-${status === 'planning' ? 'blue' : status === 'active' ? 'green' : status === 'paused' ? 'amber' : 'purple'}-100 
+                                       border-${status === 'planning' ? 'blue' : status === 'active' ? 'green' : status === 'paused' ? 'amber' : 'purple'}-500` : 
+                                      'bg-gray-100 border-gray-300'}
+                                  `}
+                                  onClick={() => field.onChange(status)}
+                                >
+                                  <span className="capitalize">{status}</span>
+                                </div>
+                              </FormControl>
+                            </div>
+                          ))}
+                        </div>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                
+                <FormField
+                  control={form.control}
+                  name="notes"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Notes</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Add any additional information" 
+                          className="min-h-[100px]" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <DialogFooter className="mt-6">
+                  <Button type="submit">
+                    {editingResource ? 'Save Changes' : 'Add Resource'}
+                  </Button>
+                </DialogFooter>
+              </form>
+            </Form>
+          </DialogContent>
+        </Dialog>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default ResourceAllocation;
