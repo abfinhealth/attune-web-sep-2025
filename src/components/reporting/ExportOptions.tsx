@@ -11,8 +11,8 @@ import {
 import { 
   Download, 
   FileText, 
-  Download as DownloadExcel,
-  Download as DownloadPowerPoint 
+  FileSpreadsheet,
+  FilePresentation 
 } from 'lucide-react';
 
 type ExportOptionsProps = {
@@ -36,11 +36,11 @@ const ExportOptions = ({ onExport }: ExportOptionsProps) => {
           PDF Document
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => onExport('excel')}>
-          <DownloadExcel className="mr-2 h-4 w-4" />
+          <FileSpreadsheet className="mr-2 h-4 w-4" />
           Excel Spreadsheet
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => onExport('powerpoint')}>
-          <DownloadPowerPoint className="mr-2 h-4 w-4" />
+          <FilePresentation className="mr-2 h-4 w-4" />
           PowerPoint Presentation
         </DropdownMenuItem>
       </DropdownMenuContent>

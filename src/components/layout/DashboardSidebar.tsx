@@ -12,7 +12,7 @@ import {
   TrendingUp,
   Store,
   MapPin,
-  FileExport
+  FileText as CustomReportingIcon
 } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -121,7 +121,7 @@ const DashboardSidebar = () => {
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                <FileExport className="h-5 w-5 mr-3" />
+                <CustomReportingIcon className="h-5 w-5 mr-3" />
                 Custom Reporting
               </Link>
 
