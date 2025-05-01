@@ -12,7 +12,7 @@ import {
   Download, 
   FileText, 
   FileSpreadsheet,
-  FilePresentation 
+  Presentation 
 } from 'lucide-react';
 
 type ExportOptionsProps = {
@@ -40,7 +40,7 @@ const ExportOptions = ({ onExport }: ExportOptionsProps) => {
           Excel Spreadsheet
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => onExport('powerpoint')}>
-          <FilePresentation className="mr-2 h-4 w-4" />
+          <Presentation className="mr-2 h-4 w-4" />
           PowerPoint Presentation
         </DropdownMenuItem>
       </DropdownMenuContent>
