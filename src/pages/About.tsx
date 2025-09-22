@@ -1,227 +1,347 @@
 
-import { useEffect } from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import TeamMember from '@/components/about/TeamMember';
-import ValueCard from '@/components/about/ValueCard';
-import { Button } from '@/components/ui/button';
-import { Mail, MapPin } from 'lucide-react';
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowRight, Users, TrendingUp, Target, Heart, GraduationCap, Building2 } from "lucide-react"
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 const About = () => {
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const leadershipTeam = [
-    {
-      name: 'Andy Bandyopadhyay, PhD, CUDE',
-      title: 'Founder & CEO',
-      bio: 'Andy founded Attune with the vision of transforming how credit unions approach their mission. With a PhD from Georgia Tech and extensive experience in financial health measurement and strategy, Andy leads our mission to bring financial health to life.'
-    },
-    {
-      name: 'Lina Ghani',
-      title: 'Director of Business Operations',
-      bio: 'Lina drives operational excellence across Attune with her strategic approach to business optimization. With a Master\'s degree from Oxford University and rich experience in scaling mission-driven organizations, Lina ensures our financial health strategies translate into effective implementation for credit unions.'
-    },
-    {
-      name: 'Claire Suellentrop',
-      title: 'Head of Go-To-Market',
-      bio: 'Claire shapes how Attune communicates our mission-margin approach to the credit union market. Drawing on her extensive experience scaling B2B SaaS companies and co-founding the Customer-Led Growth Framework, Claire helps credit unions articulate financial health as their fundamental competitive advantage.'
-    }
-  ];
-
-  const boardMembers = [
-    {
-      name: 'Andy Bandyopadhyay, PhD, CUDE',
-      title: 'Founder & CEO, Board Member',
-      bio: 'Andy founded Attune with the vision of transforming how credit unions approach their mission. With a PhD from Georgia Tech and extensive experience in financial health measurement and strategy, Andy leads our mission to bring financial health to life.'
-    },
-    {
-      name: 'Niko Canner',
-      title: 'Board Chair',
-      bio: 'Niko brings extensive experience in strategy, organizational transformation, and mission-driven business models. As our Board Chair, he provides invaluable guidance on our growth strategy and market approach.'
-    },
-    {
-      name: 'Jennifer Tescher',
-      title: 'Board Member',
-      bio: 'As CEO of the Financial Health Network, Jen is a pioneering advocate for financial health and has shaped the national conversation around how businesses can drive both social impact and financial performance.'
-    },
-    {
-      name: 'Melinda Hightower',
-      title: 'Board Member',
-      bio: 'Mel brings deep expertise in financial services, strategic growth, and inclusive leadership. Her perspective helps ensure our solutions create meaningful impact for credit unions of all sizes.'
-    }
-  ];
-
-  const values = [
-    {
-      title: 'Integration Over Separation',
-      description: 'We reject the false choice between mission and margin, seeing them as two sides of the same coin.'
-    },
-    {
-      title: 'Measurement Over Intention',
-      description: 'We believe what gets measured gets managed—and what gets managed creates impact.'
-    },
-    {
-      title: 'Implementation Over Ideas',
-      description: 'We focus on bringing strategies to life, not just developing them.'
-    },
-    {
-      title: 'Personalization Over One-Size-Fits-All',
-      description: 'We recognize that financial health looks different for everyone and tailor our approaches accordingly.'
-    }
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-attune-teal-light to-attune-gray py-20 px-4">
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-attune-teal-dark mb-6">About Attune</h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-700">
-              Transforming credit unions by making financial health their competitive advantage
+
+      {/* Hero Section */}
+      <section className="py-20 lg:py-32 mt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+              Why Financial Institutions Need Financial Health Expertise
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 text-pretty">
+              I'm Andy Bandyopadhyay, PhD, CUDE. I founded Attune because too many financial institutions were guessing
+              at what their members need instead of actually measuring it.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Our Story Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-teal-dark mb-12">Our Story</h2>
-            <div className="grid md:grid-cols-2 gap-10 items-center">
+      {/* Financial Health Network connection and Andy's credentials */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-lg text-gray-700 mb-6">
-                  Attune was born from a simple but powerful insight: when credit unions improve the financial health of their members, they also strengthen their own bottom line. It's not a choice between mission and margin—it's a virtuous cycle.
+                <h2 className="text-3xl font-bold mb-6">The Financial Health Network Connection</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Attune was born from and incubated within the Financial Health Network - the organization that created
+                  the FinHealth Score® and drives national financial health research.
                 </p>
-                <p className="text-lg text-gray-700 mb-6">
-                  Founded as a business line of the Financial Health Network in 2019, Attune became an independent company on October 1, 2023. Our journey began with a question: how might we help credit unions not just talk about financial health, but truly make it the core of their business model and competitive advantage?
-                </p>
-                <p className="text-lg text-gray-700">
-                  Today, Attune is the industry standard for measuring and implementing financial health strategies that integrate mission and margin for credit unions. We've grown from an idea to a comprehensive solution that transforms how credit unions operate, measure success, and create value.
+                <p className="text-lg text-muted-foreground">
+                  I witnessed how financial institutions could become powerful catalysts for member financial health,
+                  but most lacked the tools to measure and improve it systematically.
                 </p>
               </div>
-              <div className="bg-attune-teal-light p-10 rounded-lg">
-                <h3 className="text-2xl font-bold text-attune-teal-dark mb-6">Our North Star</h3>
-                <h4 className="text-xl font-bold text-attune-teal mb-4">Bring Financial Health to Life</h4>
-                <p className="text-gray-700 mb-6">
-                  This simple phrase guides everything we do. It's about making financial health more than a concept or a talking point—it's about transforming it into lived reality for credit union members, employees, and communities.
-                </p>
-                <h5 className="font-bold text-gray-700 mb-3">We believe financial health is:</h5>
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  <li>Not just something you offer, but who you are</li>
-                  <li>Not a charitable initiative, but a business model</li>
-                  <li>Not a side program, but your competitive advantage</li>
-                  <li>Not measured in isolation, but connected to performance</li>
-                </ul>
-              </div>
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4 mb-6">
+                    <div className="bg-primary/20 p-3 rounded-lg">
+                      <GraduationCap className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3">Academic & Professional Background</h3>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li>• PhD in science and technology policy</li>
+                    <li>• Certified Credit Union Development Educator (CUDE)</li>
+                    <li>• Research focus on member financial outcomes measurement</li>
+                    <li>• 10+ years in quantitative and qualitative research roles</li>
+                  </ul>
+                  <p className="text-sm text-muted-foreground mt-4 font-medium">
+                    But here's what matters more: I've seen what happens when financial institutions actually measure
+                    member financial health. The results speak for themselves.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Our Approach Section */}
-        <section className="py-20 px-4 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-teal-dark mb-12">Our Approach</h2>
-            <div className="text-lg text-gray-700 space-y-6 max-w-4xl">
-              <p>
-                At Attune, we've redefined how credit unions approach financial health by rejecting the false choice between doing good and doing well. Our integrated approach connects mission impact directly to business outcomes, transforming how you operate, measure success, and differentiate in a crowded market.
-              </p>
-              <p>
-                We don't just provide recommendations—we partner with you through every step of implementation, from strategic planning to front-line execution. And our measurement platform provides the data and insights to prove your impact and optimize your approach.
+      {/* Why This Isn't Charity Work */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-8">Why This Isn't Charity Work</h2>
+
+            <div className="bg-primary/10 p-8 rounded-lg mb-8">
+              <p className="text-xl font-semibold text-primary mb-4">
+                Here's the blunt truth: financial health isn't about helping people feel good. It's about building
+                sustainable member relationships that drive business results.
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* Our Team Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-teal-dark mb-12">Our Team</h2>
-            <p className="text-lg text-gray-700 mb-12 max-w-4xl">
-              Attune brings together experts in credit unions, financial health, strategy, technology, and implementation. Our diverse team combines deep industry knowledge with fresh perspectives to create truly transformative solutions.
+            <p className="text-lg text-muted-foreground mb-6">
+              When Credit Human's board said they wanted members healthier than the nation, they weren't talking about
+              charity. They were talking about competitive advantage.
             </p>
-            
-            <h3 className="text-2xl font-bold text-attune-teal-dark mb-8">Leadership</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {leadershipTeam.map((member, index) => (
-                <TeamMember key={index} name={member.name} title={member.title} bio={member.bio} />
-              ))}
-            </div>
-            
-            <h3 className="text-2xl font-bold text-attune-teal-dark mb-8">Our Board</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {boardMembers.map((member, index) => (
-                <TeamMember key={index} name={member.name} title={member.title} bio={member.bio} />
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Our Values Section */}
-        <section className="py-20 px-4 bg-attune-teal bg-opacity-5">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-teal-dark mb-12">Our Values</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {values.map((value, index) => (
-                <ValueCard key={index} title={value.title} description={value.description} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Join Our Team Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-attune-teal-dark mb-8">Join Our Team</h2>
-            <div className="grid md:grid-cols-2 gap-10 items-center">
-              <div className="text-lg text-gray-700 space-y-4">
-                <p>
-                  Attune is growing, and we're looking for passionate people who share our vision of bringing financial health to life. We offer:
-                </p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>A mission-driven culture with meaningful work</li>
-                  <li>A diverse, inclusive team spread across North America</li>
-                  <li>Flexible, remote-first work environment</li>
-                  <li>Opportunities to shape an emerging industry</li>
-                  <li>Competitive compensation and benefits</li>
-                </ul>
-                <div className="mt-8">
-                  <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white">
-                    View Open Positions
-                  </Button>
-                </div>
-              </div>
-              <div className="bg-gradient-to-tr from-attune-teal-light to-attune-yellow-light p-10 rounded-lg">
-                <h3 className="text-2xl font-bold text-attune-teal-dark mb-6">Contact Us</h3>
-                <p className="text-gray-700 mb-6">
-                  Ready to learn more about Attune? We'd love to hear from you.
-                </p>
-                <div className="flex items-center text-attune-teal mb-4">
-                  <Mail className="h-5 w-5 mr-3" />
-                  <span>hello@attune.co</span>
-                </div>
-                <div className="flex items-center text-attune-teal mb-8">
-                  <MapPin className="h-5 w-5 mr-3" />
+            <Card className="mb-8">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-chart-2/20 p-3 rounded-lg">
+                    <Building2 className="h-8 w-8 text-chart-2" />
+                  </div>
                   <div>
-                    <p>Toronto Office:</p>
-                    <p>507 King Street East, Unit 411</p>
-                    <p>Toronto, ON</p>
+                    <h3 className="text-xl font-semibold mb-4">VACU proved it:</h3>
+                    <p className="text-muted-foreground">
+                      Financially healthy members use 32% more products. Not because you're selling harder, but because
+                      those products genuinely fit their situation.
+                    </p>
                   </div>
                 </div>
-                <Button className="bg-white text-attune-teal border border-attune-teal hover:bg-attune-teal hover:text-white transition-colors">
-                  Schedule a Consultation
-                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Andy's Story */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-bold mb-8">The Thing Everyone Gets Wrong</h2>
+
+              <p className="text-lg text-muted-foreground mb-6">
+                You know how when you go to your bank or credit union, they're like "here's all our products, here's the
+                rates, what do you want?" And you're sitting there thinking, "I have no idea what I actually need"?
+                That's the problem we're solving.
+              </p>
+
+              <p className="text-lg text-muted-foreground mb-8">
+                Most financial institutions think they know their members because they can see account balances and
+                credit scores. But that's like saying you understand someone's health because you know their weight.
+                You're missing the whole story.
+              </p>
+
+              <Card className="mb-8">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-semibold mb-4">Here's a real example:</h3>
+                  <p className="text-muted-foreground">
+                    You've got a member with $50,000 in savings. Traditional metrics say they're doing great, right? But
+                    what if they're actually stressed out of their minds because they don't have a separate emergency
+                    fund, they're carrying high debt they don't understand, and they have no plan for retirement? That
+                    person needs help, not another savings product.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <div className="bg-primary/10 p-8 rounded-lg mb-12">
+                <p className="text-lg font-semibold text-primary mb-4">
+                  We built Attune because financial institutions need to understand the "why" behind financial behavior,
+                  not just the "what."
+                </p>
               </div>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* The Four Dimensions */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">The Four Things That Actually Matter</h2>
+            <p className="text-lg text-center text-muted-foreground mb-12">
+              Instead of just looking at account data, we measure four dimensions that actually predict how someone's
+              doing financially:
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-chart-1/20 p-3 rounded-lg">
+                      <TrendingUp className="h-8 w-8 text-chart-1" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3 text-chart-1">Spend</h3>
+                      <p className="text-muted-foreground">Can you manage your day-to-day cash flow without stress?</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-chart-2/20 p-3 rounded-lg">
+                      <Target className="h-8 w-8 text-chart-2" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3 text-chart-2">Save</h3>
+                      <p className="text-muted-foreground">Do you have a real financial cushion for emergencies?</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-chart-3/20 p-3 rounded-lg">
+                      <Users className="h-8 w-8 text-chart-3" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3 text-chart-3">Borrow</h3>
+                      <p className="text-muted-foreground">
+                        Is your debt helping you build wealth or creating anxiety?
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-chart-4/20 p-3 rounded-lg">
+                      <Heart className="h-8 w-8 text-chart-4" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3 text-chart-4">Plan</h3>
+                      <p className="text-muted-foreground">Do you feel confident about your financial future?</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-lg text-muted-foreground">
+                When you understand these four things, suddenly member conversations make sense. Instead of guessing
+                what products to offer, you can say "Your biggest challenge is spend management, so let's focus on these
+                three specific things."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Works */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Why This Actually Works</h2>
+
+            <div className="text-center mb-12">
+              <p className="text-2xl font-bold text-primary mb-6">
+                Here's the blunt truth: when you make someone richer, they spend more money with you.
+              </p>
+              <p className="text-lg text-muted-foreground">
+                When you give someone a more relevant product - one that actually helps them with their real financial
+                challenges - they're more likely to buy it. And when that product genuinely works and helps them achieve
+                their goals, they come back for the next one.
+              </p>
+            </div>
+
+            <Card className="bg-primary text-primary-foreground">
+              <CardContent className="p-8 text-center">
+                <p className="text-xl font-semibold">
+                  It's not rocket science. It's just that nobody was measuring the right things.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* What Drives This Work */}
+      <section className="py-16 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">What Drives This Work</h2>
+
+            <div className="mb-8">
+              <p className="text-xl font-semibold mb-6">
+                Every decision we make, every feature we build, every partnership we form is guided by one mission:
+                making member financial health a measurable business KPI for every financial institution.
+              </p>
+              <p className="text-lg">
+                Not because it's the right thing to do (though it is). Because it's the smart business thing to do.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
+              <Card className="bg-primary-foreground text-foreground">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-3">VACU Results</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Financially healthy members use <strong>3.3 products</strong> versus <strong>2.5</strong> for
+                    vulnerable members. That's <strong>32% higher sales</strong> - because they genuinely need those
+                    products.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-primary-foreground text-foreground">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-3">Foster Care Program</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Healthy financial scores went from <strong>3.3% to 22.6%</strong> after just six weeks. That's real
+                    impact on real people's lives.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Vision */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Ready to Make Financial Health Measurable?</h2>
+
+            <div className="prose prose-lg max-w-none mb-12">
+              <p className="text-lg text-muted-foreground mb-6">
+                The organizations that really get this become industry leaders. They're speaking at conferences, other
+                institutions are calling them for advice, their boards are making strategic decisions based on member
+                financial health data.
+              </p>
+
+              <p className="text-lg text-muted-foreground mb-8">
+                They shift from "let me show you our loan rates" to "let me understand your financial situation and help
+                you improve it." The business results follow naturally.
+              </p>
+            </div>
+
+            <Card className="bg-muted/50 mb-12">
+              <CardContent className="p-8">
+                <p className="text-xl font-semibold text-foreground">
+                  That's what Attune is really about. We're giving financial institutions the tools to actually help
+                  people get financially healthier, and when you do that well, everyone wins - the member, the
+                  institution, and the community.
+                </p>
+              </CardContent>
+            </Card>
+
+            <div className="text-center">
+              <Button size="lg" asChild>
+                <a href="/demo">
+                  Talk to Our Team <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

@@ -62,7 +62,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact">
+            <Link to="/demo">
               <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white">
                 Book Demo
               </Button>
@@ -99,7 +99,7 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
+              <Link to="/demo" onClick={() => setIsOpen(false)}>
                 <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white w-full mt-2">
                   Book Demo
                 </Button>

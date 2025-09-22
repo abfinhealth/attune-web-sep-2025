@@ -1,63 +1,55 @@
 
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
+export const Footer = () => {
   return (
-    <footer className="bg-attune-gray-dark text-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Column */}
+    <footer className="border-t border-border bg-muted/30 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4">About Attune</h3>
-            <p className="text-gray-300 mb-4">
-              We help credit unions transform through financial health. Our integrated approach connects mission to margin, revolutionizing how you operate, measure success, and compete in the market.
+            <Link to="/" className="text-2xl font-bold text-primary mb-4 block">
+              Attune
+            </Link>
+            <p className="text-muted-foreground">
+              Helping financial institutions measure and improve member financial health.
             </p>
           </div>
-
-          {/* Solutions Column */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Solutions</h3>
-            <ul className="space-y-2">
-              <li><Link to="/strategic-framework" className="text-gray-300 hover:text-attune-teal transition-colors">Strategic Framework</Link></li>
-              <li><Link to="/implementation-partnership" className="text-gray-300 hover:text-attune-teal transition-colors">Implementation Partnership</Link></li>
-              <li><Link to="/measurement-platform" className="text-gray-300 hover:text-attune-teal transition-colors">Measurement Platform</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Service Packages</Link></li>
-            </ul>
+            <h3 className="font-semibold mb-4">Company</h3>
+            <div className="space-y-2">
+              <Link to="/about" className="block text-muted-foreground hover:text-foreground transition-colors">
+                About
+              </Link>
+              <Link to="/customers" className="block text-muted-foreground hover:text-foreground transition-colors">
+                Customers
+              </Link>
+            </div>
           </div>
-
-          {/* Resources Column */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Blog</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Case Studies</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Research</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Resources</Link></li>
-            </ul>
+            <h3 className="font-semibold mb-4">Product</h3>
+            <div className="space-y-2">
+              <Link
+                to="/how-it-works"
+                className="block text-muted-foreground hover:text-foreground transition-colors"
+              >
+                How It Works
+              </Link>
+              <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors">
+                Demo
+              </Link>
+            </div>
           </div>
-
-          {/* Company Column */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-300 hover:text-attune-teal transition-colors">About Us</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Our Team</Link></li>
-              <li><Link to="#" className="text-gray-300 hover:text-attune-teal transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-attune-teal transition-colors">Contact</Link></li>
-            </ul>
+            <h3 className="font-semibold mb-4">Contact</h3>
+            <div className="space-y-2">
+              <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors">
+                Book Demo
+              </Link>
+            </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Attune Insights, Inc. All rights reserved.
-          </p>
-          <div className="flex space-x-6">
-            <Link to="#" className="text-gray-400 hover:text-attune-teal transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-gray-400 hover:text-attune-teal transition-colors">Terms of Service</Link>
-          </div>
+        <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+          <p>&copy; 2025 Attune Insights, Inc. All rights reserved.</p>
         </div>
       </div>
     </footer>
