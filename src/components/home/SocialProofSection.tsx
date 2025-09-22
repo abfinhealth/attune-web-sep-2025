@@ -1,76 +1,97 @@
 
 import ScrollAnimation from '@/components/ui/ScrollAnimation';
+import { Users, TrendingUp, Target } from 'lucide-react';
 
 const SocialProofSection = () => {
-  const testimonials = [
+  const industryQuote = {
+    quote: "We realized financial health isn't just good for customers - it's good business. Healthy customers are more profitable, have lower risk, and stay with you longer.",
+    author: "Bank of America CEO, Financial Health Network's EMERGE conference",
+    context: "The conversation has shifted from \"should we care about customer financial health?\" to \"how do we measure and optimize it?\""
+  };
+
+  const customerProofs = [
     {
-      quote: "Attune has transformed how we think about our mission. Financial health isn't just something we talk about anymore—it's how we operate, differentiate, and grow. Our board, leadership team, and employees are all aligned around a shared vision that drives both purpose and performance.",
-      author: "Sarah Johnson",
-      title: "CEO, Community First Credit Union"
+      icon: <Users className="h-8 w-8 text-attune-teal" />,
+      title: "Credit Human ($4.2B financial institution)",
+      description: "Board mandated member financial health improvement."
     },
     {
-      quote: "Working with Attune allowed us to move beyond fragmented initiatives to a cohesive strategy that touches every part of our organization. Their measurement platform has given us unprecedented visibility into both our mission impact and business outcomes, proving that financial health truly drives our success.",
-      author: "Michael Rivera",
-      title: "COO, Horizon Credit Union"
+      icon: <TrendingUp className="h-8 w-8 text-attune-teal" />,
+      title: "Large Financial Services Firm",
+      description: "Integrating our assessment into their user onboarding to drive engagement and retention through personalized financial insights."
+    },
+    {
+      icon: <Target className="h-8 w-8 text-attune-teal" />,
+      title: "Virginia Financial Institution ($5.8B)",
+      description: "Discovered financially healthy members use 32% more products - because those products genuinely fit their situation."
     }
-  ];
-
-  const statistics = [
-    { value: "43%", label: "Average improvement in member financial health scores" },
-    { value: "2.8x", label: "Increase in product adoption among financially healthy members" },
-    { value: "58%", label: "Higher deposit growth in credit unions with integrated strategies" },
-    { value: "92%", label: "Of employees report greater alignment with mission" }
   ];
 
   return (
     <section className="bg-attune-gray py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Industry Leaders Quote */}
         <ScrollAnimation>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-              Transforming Credit Unions
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              See how leading organizations are bringing financial health to life
-            </p>
+          <div className="bg-attune-teal text-white rounded-xl p-8 md:p-12 mb-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl lg:text-3xl font-bold mb-8">Why Smart Leaders Care About This</h2>
+              <blockquote className="text-xl lg:text-2xl mb-6 text-balance">
+                "{industryQuote.quote}"
+              </blockquote>
+              <p className="text-lg opacity-90 mb-8">
+                — {industryQuote.author}
+              </p>
+              <p className="text-lg">
+                {industryQuote.context.split('"').map((part, index) =>
+                  index % 2 === 1 ? <strong key={index}>"{part}"</strong> : part
+                )}
+              </p>
+            </div>
           </div>
         </ScrollAnimation>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <ScrollAnimation key={index} threshold={0.2} className="delay-100">
-              <div className="bg-white rounded-xl shadow-lg p-8 h-full flex flex-col relative overflow-hidden card-hover">
-                <div className="text-6xl font-serif text-attune-purple-light absolute top-4 left-4 opacity-20">"</div>
-                <p className="text-gray-700 mb-6 relative z-10">
-                  {testimonial.quote}
-                </p>
-                <div className="mt-auto">
-                  <p className="font-semibold text-attune-purple-dark">{testimonial.author}</p>
-                  <p className="text-gray-600">{testimonial.title}</p>
+        {/* Customer Proof Points */}
+        <ScrollAnimation>
+          <div className="max-w-4xl mx-auto mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-800">Our Customers Prove It Works</h2>
+          </div>
+        </ScrollAnimation>
+
+        <div className="space-y-8 mb-12">
+          {customerProofs.map((proof, index) => (
+            <ScrollAnimation key={index} threshold={0.2} className={`delay-${index * 100}`}>
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-attune-teal/10 p-3 rounded-lg flex-shrink-0">
+                    {proof.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{proof.title}</h3>
+                    <p className="text-gray-600">
+                      {proof.description.includes('32%') ? (
+                        <>
+                          Discovered financially healthy members use <strong>32% more products</strong> - because those
+                          products genuinely fit their situation.
+                        </>
+                      ) : (
+                        proof.description
+                      )}
+                    </p>
+                  </div>
                 </div>
-                <div className="text-6xl font-serif text-attune-purple-light absolute bottom-4 right-4 opacity-20">"</div>
               </div>
             </ScrollAnimation>
           ))}
         </div>
 
-        {/* Statistics */}
         <ScrollAnimation threshold={0.2}>
-          <h3 className="text-2xl font-semibold mb-8 text-center text-gray-800">Impact Statistics</h3>
+          <div className="text-center">
+            <p className="text-lg text-gray-600">
+              Different institution types. Same business insight:
+              <strong className="text-gray-800"> financial health measurement drives better outcomes.</strong>
+            </p>
+          </div>
         </ScrollAnimation>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {statistics.map((stat, index) => (
-            <ScrollAnimation key={index} threshold={0.2} className="delay-200">
-              <div className="bg-white rounded-xl shadow-md p-6 text-center card-hover">
-                <p className="text-3xl md:text-4xl font-bold mb-2 text-attune-purple">
-                  {stat.value}
-                </p>
-                <p className="text-gray-600">{stat.label}</p>
-              </div>
-            </ScrollAnimation>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -22,23 +22,23 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollAnimation threshold={0.1} className="mb-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display">
-              <span className="text-attune-teal">Bring Financial Health to </span>
-              <span className="text-attune-orange">Life</span>
+              Your leadership knows member financial health drives business results.
+              <span className="text-attune-teal"> We prove it.</span>
             </h1>
           </ScrollAnimation>
           <ScrollAnimation threshold={0.1} delay={200}>
-            <p className="text-xl md:text-2xl mb-10 text-gray-700 font-light">
-              Make financial health your competitive advantage
+            <p className="text-xl md:text-2xl mb-6 text-gray-700 font-light">
+              Whether you're managing member outcomes, optimizing product portfolios, or improving user engagement - the
+              question is always the same: "How do we measure financial health impact?"
             </p>
+          </ScrollAnimation>
+          <ScrollAnimation threshold={0.1} delay={300}>
+            <p className="text-lg text-gray-800 mb-10 font-medium">Here's how our customers do it.</p>
           </ScrollAnimation>
           <ScrollAnimation threshold={0.1} delay={400}>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/dashboard" className="btn-primary flex items-center justify-center gap-2">
-                Access Platform
-                <ArrowRight size={18} />
-              </Link>
-              <Link to="#" className="btn-outline flex items-center justify-center gap-2">
-                Explore Our Approach
+              <Link to="/contact" className="btn-primary flex items-center justify-center gap-2">
+                Talk to Our Team
                 <ArrowRight size={18} />
               </Link>
             </div>

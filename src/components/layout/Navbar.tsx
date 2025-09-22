@@ -27,10 +27,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', path: '/about' },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'Approach', path: '/approach' },
-    { name: 'Insights', path: '/insights' },
-    { name: 'For Credit Unions', path: '/credit-unions' },
+    { name: 'Customers', path: '/customers' },
+    { name: 'How It Works', path: '/how-it-works' },
   ];
 
   return (
@@ -66,7 +64,7 @@ const Navbar = () => {
             ))}
             <Link to="/contact">
               <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white">
-                Contact
+                Book Demo
               </Button>
             </Link>
           </nav>
@@ -103,7 +101,7 @@ const Navbar = () => {
               ))}
               <Link to="/contact" onClick={() => setIsOpen(false)}>
                 <Button className="bg-attune-teal hover:bg-attune-teal-dark text-white w-full mt-2">
-                  Contact
+                  Book Demo
                 </Button>
               </Link>
             </div>
